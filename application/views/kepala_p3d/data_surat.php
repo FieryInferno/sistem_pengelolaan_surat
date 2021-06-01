@@ -57,7 +57,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url(); ?>kepala_seksi/disposisi" method="post">
+      <form action="<?= base_url(); ?>kepala_p3d/disposisi" method="post">
         <div class="modal-body">
           <input type="hidden" name="id_surat_masuk" id="id_surat_masuk">
           <div class="form-group">

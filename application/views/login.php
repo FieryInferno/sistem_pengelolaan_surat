@@ -36,6 +36,7 @@
               <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
+                    <img src="<?= base_url(); ?>assets/maskot.png" alt="" class="text-center" width="50%">
                     <h4 class="site-description"><div style='color:rgb(0 0 0);'>Login</div></h4>
                     <h4 class="site-description"><div style='color:rgb(0 0 0);'>Sistem Informasi Pengelolaan Surat</div></h4>
                   </div>
