@@ -165,6 +165,7 @@ class SuratKeluar extends CI_Controller{
 	public function edit($id_surat_keluar)
 	{
     if ($this->input->post()) {
+      unlink('assets/' . $this->input->post('surat_lama'));
       ob_start();
         $this->load->view('surat_keluar.php');
         $html = ob_get_contents();
@@ -178,16 +179,16 @@ class SuratKeluar extends CI_Controller{
       $dompdf->setPaper('legal', 'potrait');
       $dompdf->render();
       file_put_contents('./assets/' . $filename . '.pdf', $dompdf->output());
-      $this->db->where('id_surat_keluar', $id_surat_keluar);
-      $this->db->update('surat_keluar', [
-        'no_surat'  => $this->input->post('no_surat'),
-        'tanggal'   => $this->input->post('tanggal'),
-        'perihal'   => $this->input->post('perihal'),
-        'tujuan'    => $this->input->post('tujuan'),
-        'isi'       => $this->input->post('isi'),
-        'file'      => $filename . '.pdf'
-      ]);
-      $dompdf->stream($filename, array("Attachment" => 0) );
+      $this->SuratModel->buatSuratkeluar($filename, $id_surat_keluar);
+      $this->session->set_flashdata('pesan', '
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Sukses!</strong> Berhasil edit surat keluar.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      ');
+      redirect('admin/SuratKeluar');
     }
     $data = $this->db->get_where('surat_keluar', [
       'id_surat_keluar' => $id_surat_keluar
