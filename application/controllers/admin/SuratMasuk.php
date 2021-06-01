@@ -103,5 +103,27 @@ class SuratMasuk extends CI_Controller{
 		$this->load->view('admin/trackingSurat',$data);
 		$this->load->view('templates_admin/footer');
   }
+
+	public function edit($id_surat_masuk)
+	{
+    if ($this->input->post()) {
+      $this->SuratModel->edit($id_surat_masuk);
+      $this->session->set_flashdata('pesan','
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Berhasi tambah surat masuk!</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true"></span>
+          </button>
+        </div>
+      ');
+      redirect('admin/surat_masuk');
+    }
+		$data           = $this->db->get_where('surat_masuk', ['id_surat_masuk' => $id_surat_masuk])->row_array();
+		$data['title']  = "Edit Surat Masuk";
+		$this->load->view('templates_admin/header', $data);
+		$this->load->view('templates_admin/sidebar');
+		$this->load->view('admin/editSuratMasuk',$data);
+		$this->load->view('templates_admin/footer');
+	}
 }
 ?>

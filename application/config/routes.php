@@ -5,12 +5,13 @@ $route['default_controller']    = 'welcome';
 $route['404_override']          = '';
 $route['translate_uri_dashes']  = FALSE;
 
-$route['admin/surat_keluar']        = 'admin/SuratKeluar';
-$route['admin/surat_keluar/(:any)'] = 'admin/SuratKeluar/tambahData/$1';
-$route['admin/surat_masuk']         = 'admin/SuratMasuk';
-$route['admin/surat_masuk/tambah']  = 'admin/SuratMasuk/tambahData';
-$route['admin/tracking_surat']      = 'admin/SuratMasuk/tracking';
-$route['admin/user/tambah']         = 'admin/user/tambahData';
+$route['admin/surat_keluar']            = 'admin/SuratKeluar';
+$route['admin/surat_keluar/(:any)']     = 'admin/SuratKeluar/tambahData/$1';
+$route['admin/surat_masuk']             = 'admin/SuratMasuk';
+$route['admin/surat_masuk/tambah']      = 'admin/SuratMasuk/tambahData';
+$route['admin/surat_masuk/edit/(:any)'] = 'admin/SuratMasuk/edit/$1';
+$route['admin/tracking_surat']          = 'admin/SuratMasuk/tracking';
+$route['admin/user/tambah']             = 'admin/user/tambahData';
 
 $route['kepala_p3d']            = 'kepala_p3d/Dashboard';
 $route['kepala_p3d/surat']      = 'kepala_p3d/Surat';

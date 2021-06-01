@@ -141,6 +141,41 @@ class SuratModel extends CI_Model{
       'seksi' => $this->session->seksi
     ])->result_array();
   }
+
+  public function edit($id_surat_masuk)
+  {
+    if ($_FILES['file']['name'] == '') {
+      $file = $this->input->post('file_old');
+    } else {
+      unlink('assets/' . $this->input->post('file_old'));
+      $config['upload_path']          = './assets/';
+      $config['allowed_types']        = 'pdf';
+  
+      $this->upload->initialize($config);
+  
+      if ( ! $this->upload->do_upload('file')) {
+        $this->session->flashdata('pesan', '
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Gagal!</strong> gagal mengupload file surat.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        ');
+        redirect('admin/surat_masuk/edit/' . $id_surat_masuk);
+      } else {
+        $file = $this->upload->data('file_name');
+      }
+    }
+    
+    $this->db->update('surat_masuk', [
+      'no_surat'  => $this->input->post('no_surat'),
+      'tanggal'   => $this->input->post('tanggal'),
+      'pengirim'  => $this->input->post('pengirim'),
+      'perihal'   => $this->input->post('perihal'),
+      'file'      => $file,
+    ], ['id_surat_masuk'  => $id_surat_masuk]);
+  }
 }
 
 ?>
