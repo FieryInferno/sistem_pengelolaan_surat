@@ -184,8 +184,6 @@ class SuratModel extends CI_Model{
   {
     $data = $this->db->get_where('surat_keluar', ['id_surat_keluar' => $id_surat_keluar])->row_array();
     if (file_exists('./assets/' . $data['file'])) {
-      // print_r('a');
-      // die();
       unlink('./assets/' . $data['file']);
     }
     $this->db->delete('surat_keluar', ['id_surat_keluar'  => $id_surat_keluar]);
