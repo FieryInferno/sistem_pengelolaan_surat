@@ -37,10 +37,9 @@ class SuratMasuk extends CI_Controller{
 		$this->load->view('templates_admin/footer');
 	}
 
-  public function delete($no)
+  public function hapus($id_surat_masuk)
   {
-    $where = array('id_surat_masuk' => $no);
-    $this->SuratModel->delete_data($where, 'surat_masuk');
+    $this->SuratModel->hapus($id_surat_masuk);
     $this->session->set_flashdata('pesan','
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong>
@@ -49,7 +48,7 @@ class SuratMasuk extends CI_Controller{
         </button>
       </div>
     ');
-    redirect('admin/SuratMasuk');
+    redirect('admin/surat_masuk');
   }
 
   public function print()

@@ -176,6 +176,15 @@ class SuratModel extends CI_Model{
       'file'      => $file,
     ], ['id_surat_masuk'  => $id_surat_masuk]);
   }
+
+  public function hapus($id_surat_masuk)
+  {
+    $data = $this->db->get_where('surat_masuk', ['id_surat_masuk' => $id_surat_masuk])->row_array();
+    if (file_exists('./assets/' . $data['file'])) {
+      unlink('./assets/' . $data['file']);
+    }
+    $this->db->delete('surat_masuk', ['id_surat_masuk'  => $id_surat_masuk]);
+  }
 }
 
 ?>

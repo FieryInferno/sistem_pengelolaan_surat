@@ -35,6 +35,7 @@
           <td>
             <a href="<?= base_url('assets/' . $m['file']); ?>" class="btn btn-primary"><i class="fas fa-eye"></i></a>
             <a href="<?= base_url('admin/surat_masuk/edit/' . $m['id_surat_masuk']); ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+            <a href="<?= base_url('admin/surat_masuk/hapus/' . $m['id_surat_masuk']); ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
           </td>
         </tr>
       <?php endforeach; ?>

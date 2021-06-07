@@ -11,6 +11,7 @@ $route['admin/surat_keluar/edit/(:any)']  = 'admin/SuratKeluar/edit/$1';
 $route['admin/surat_masuk']               = 'admin/SuratMasuk';
 $route['admin/surat_masuk/tambah']        = 'admin/SuratMasuk/tambahData';
 $route['admin/surat_masuk/edit/(:any)']   = 'admin/SuratMasuk/edit/$1';
+$route['admin/surat_masuk/hapus/(:any)']  = 'admin/SuratMasuk/hapus/$1';
 $route['admin/tracking_surat']            = 'admin/SuratMasuk/tracking';
 $route['admin/user/tambah']               = 'admin/user/tambahData';
 
