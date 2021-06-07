@@ -11,7 +11,27 @@
 </head>
 <body>
   <img src="<?= base_url(); ?>assets/img/kop_surat.png" alt="" width="100%">
-  <div class="text-right">Subang, <?= $this->input->post('tanggal'); ?></div>
+  <div class="text-right">Subang, 
+    <?php 
+      function tgl_indo($tanggal){
+        $bulan = array (
+          1 =>   'Januari',
+          'Februari',
+          'Maret',
+          'April',
+          'Mei',
+          'Juni',
+          'Juli',
+          'Agustus',
+          'September',
+          'Oktober',
+          'November',
+          'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+        return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+      }
+      echo tgl_indo($this->input->post('tanggal')); ?></div>
   <table>
     <tr>
       <td width="450px">No. Surat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $this->input->post('no_surat'); ?></td>

@@ -30,12 +30,25 @@
             <li class="nav-item">
               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-mail-bulk"></i>
-                <span>Transaksi Surat</span>
+                <?php $jumlah = $this->db->get_where('surat_keluar', ['status'  => '0'])->num_rows(); ?>
+                <span>Transaksi Surat 
+                  <?php
+                    if ($jumlah > 0) { ?>
+                      <span class="badge badge-success"><?= $jumlah; ?></span>
+                    <?php }
+                  ?> 
+                </span>
               </a>
               <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                   <a class="collapse-item" href="<?php echo base_url('admin/surat_masuk') ?>">Surat Masuk</a>
-                  <a class="collapse-item" href="<?php echo base_url('admin/surat_keluar') ?>">Surat Keluar</a>
+                  <a class="collapse-item" href="<?php echo base_url('admin/surat_keluar') ?>">Surat Keluar 
+                    <?php
+                      if ($jumlah > 0) { ?>
+                        <span class="badge badge-success"><?= $jumlah; ?></span>
+                      <?php }
+                    ?> 
+                  </a>
                 </div>
               </div>
             </li>
@@ -51,7 +64,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>kepala_p3d/surat">
                   <i class="fas fa-fw fa-database"></i>
-                  <span>Data Surat</span>
+                  <?php $jumlah = $this->db->get_where('surat_masuk', ['status'  => '0'])->num_rows(); ?>
+                  <span>Data Surat
+                    <?php
+                      if ($jumlah > 0) { ?>
+                        <span class="badge badge-success"><?= $jumlah; ?></span>
+                      <?php }
+                    ?> 
+                  </span>
                 </a>
               </li>
               <?php break;
@@ -60,7 +80,19 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>kepala_seksi/surat">
                   <i class="fas fa-fw fa-database"></i>
-                  <span>Data Surat</span>
+                  <?php 
+                    $jumlah = $this->db->get_where('surat_masuk', [
+                      'status'  => '1',
+                      'seksi'   => $this->session->seksi
+                    ])->num_rows(); 
+                  ?>
+                  <span>Data Surat 
+                    <?php
+                      if ($jumlah > 0) { ?>
+                        <span class="badge badge-success"><?= $jumlah; ?></span>
+                      <?php }
+                    ?> 
+                  </span>
                 </a>
               </li>
               <?php break;
@@ -69,7 +101,19 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>staff/surat">
                   <i class="fas fa-fw fa-database"></i>
-                  <span>Data Surat</span>
+                  <?php 
+                    $jumlah = $this->db->get_where('surat_masuk', [
+                      'status'  => '2',
+                      'seksi'   => $this->session->seksi
+                    ])->num_rows(); 
+                  ?>
+                  <span>Data Surat
+                    <?php
+                      if ($jumlah > 0) { ?>
+                        <span class="badge badge-success"><?= $jumlah; ?></span>
+                      <?php }
+                    ?> 
+                  </span>
                 </a>
               </li>
               <!-- Nav Item - Pages Collapse Menu -->
