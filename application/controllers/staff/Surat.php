@@ -63,4 +63,18 @@ class Surat extends CI_Controller {
 		$this->load->view('staff/tambahPengajuanSurat');
 		$this->load->view('templates_admin/footer');
   }
+
+  public function hapus($id_surat_keluar)
+  {
+    $this->SuratModel->hapusSuratKeluar($id_surat_keluar);
+    $this->session->set_flashdata('pesan','
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Data Berhasil Dihapus!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true"></span>
+        </button>
+      </div>
+    ');
+    redirect('staff/pengajuan_surat');
+  }
 }

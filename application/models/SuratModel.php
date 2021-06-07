@@ -96,12 +96,6 @@ class SuratModel extends CI_Model{
     ]);
   }
 
-  public function hapusSuratKeluar($id_surat_keluar)
-  {
-    $this->db->where('id_surat_keluar');
-    $this->db->delete('surat_keluar');
-  }
-
   public function getSuratTerbaru()
   {
     $this->db->order_by('id_surat_keluar', 'DESC');
@@ -184,6 +178,17 @@ class SuratModel extends CI_Model{
       unlink('./assets/' . $data['file']);
     }
     $this->db->delete('surat_masuk', ['id_surat_masuk'  => $id_surat_masuk]);
+  }
+
+  public function hapusSuratKeluar($id_surat_keluar)
+  {
+    $data = $this->db->get_where('surat_keluar', ['id_surat_keluar' => $id_surat_keluar])->row_array();
+    if (file_exists('./assets/' . $data['file'])) {
+      // print_r('a');
+      // die();
+      unlink('./assets/' . $data['file']);
+    }
+    $this->db->delete('surat_keluar', ['id_surat_keluar'  => $id_surat_keluar]);
   }
 }
 

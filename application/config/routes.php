@@ -22,8 +22,9 @@ $route['kepala_p3d/disposisi']  = 'kepala_p3d/Surat/disposisi';
 $route['kepala_seksi']            = 'kepala_seksi/Dashboard';
 $route['kepala_seksi/disposisi']  = 'kepala_seksi/Surat/disposisi';
 
-$route['staff']                         = 'staff/Dashboard';
-$route['staff/surat']                   = 'staff/Surat';
-$route['staff/surat/tindaklanjuti']     = 'staff/Surat/tindaklanjuti';
-$route['staff/pengajuan_surat']         = 'staff/Surat/pengajuan';
-$route['staff/pengajuan_surat/tambah']  = 'staff/Surat/tambahPengajuan';
+$route['staff']                               = 'staff/Dashboard';
+$route['staff/surat']                         = 'staff/Surat';
+$route['staff/surat/tindaklanjuti']           = 'staff/Surat/tindaklanjuti';
+$route['staff/pengajuan_surat']               = 'staff/Surat/pengajuan';
+$route['staff/pengajuan_surat/tambah']        = 'staff/Surat/tambahPengajuan';
+$route['staff/pengajuan_surat/hapus/(:any)']  = 'staff/Surat/hapus/$1';

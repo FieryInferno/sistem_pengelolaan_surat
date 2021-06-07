@@ -37,11 +37,12 @@
                   <a href="<?= base_url('assets/' . $m['file']); ?>" class="btn btn-primary"><i class="fas fa-eye"></i></a>
                   <?php break;
                 
-                default: ?>
-                  <button type="button" class="btn btn-primary" disabled>Sudah Ditindaklanjuti</button>
-                  <?php break;
+                default:
+                
+                  break;
               }
             ?>
+            <a href="<?= base_url('staff/pengajuan_surat/hapus/' . $m['id_surat_keluar']); ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
           </td>
         </tr>
       <?php endforeach; ?>
