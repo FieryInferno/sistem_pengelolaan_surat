@@ -2,7 +2,7 @@
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800"><?php echo $title ?></h1>
   </div>
-  <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/surat_masuk/tambah') ?>">
+  <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/surat_masuk/upload') ?>">
     <i class="fas fa-plus"> Upload Surat</i>
   </a>
   <a class="btn btn-sm btn-primary mb-3" href="<?= base_url(); ?>admin/SuratKeluar/print">Cetak Laporan</a>
