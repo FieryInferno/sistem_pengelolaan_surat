@@ -11,14 +11,15 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('admin/dashboard') ?>">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
       <?php
         switch ($this->session->level) {
           case 'admin': ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url('admin/dashboard') ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
               <a class="nav-link" href="<?= base_url(); ?>admin/user">
@@ -60,6 +61,11 @@
             </li>
             <?php break;
             case 'kepala_p3d': ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('kepala_p3d') ?>">
+                  <i class="fas fa-fw fa-tachometer-alt"></i>
+                  <span>Dashboard</span></a>
+              </li>
               <!-- Nav Item - Pages Collapse Menu -->
               <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>kepala_p3d/surat">
@@ -76,6 +82,12 @@
               </li>
               <?php break;
             case 'kepala_seksi': ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('kepala_seksi') ?>">
+                  <i class="fas fa-fw fa-tachometer-alt"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
               <!-- Nav Item - Pages Collapse Menu -->
               <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>kepala_seksi/surat">
@@ -97,6 +109,12 @@
               </li>
               <?php break;
             case 'staff': ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('staff') ?>">
+                  <i class="fas fa-fw fa-tachometer-alt"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
               <!-- Nav Item - Pages Collapse Menu -->
               <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>staff/surat">

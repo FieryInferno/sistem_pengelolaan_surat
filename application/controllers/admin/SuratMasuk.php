@@ -30,7 +30,7 @@ class SuratMasuk extends CI_Controller{
       ');
       redirect('admin/surat_masuk');
     }
-		$data['title'] = "Tambah Surat Masuk";
+		$data['title'] = "Upload Surat Masuk";
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('admin/tambahSuratMasuk',$data);
