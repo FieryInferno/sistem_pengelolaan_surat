@@ -64,9 +64,9 @@
             <label>Diteruskan ke</label>
             <select name="seksi" class="form-control">
               <option>Pilih Seksi</option>
-              <option value="1">Penerimaan dan Pendataan</option>
-              <option value="2">Pendataan Penetapan</option>
-              <option value="4">Pengelola Keuangan</option>
+              <option value="penerimaan_dan_penagihan">Penerimaan dan Penagihan</option>
+              <option value="pendataan_penetapan">Pendataan Penetapan</option>
+              <!-- <option value="4">Pengelola Keuangan</option>
               <option value="5">Perencanaan dan Program</option>
               <option value="6">Pengadministrasian Sarana dan Prasarana</option>
               <option value="7">Pengolah Data Aplikasi dan Pengolahan Data Sistem Keuangan</option>
@@ -76,7 +76,7 @@
               <option value="11">Pengolah Data Pemeriksa Pajak</option>
               <option value="12">Pengolah Data Penagihan Pajak</option>
               <option value="13">Pranata Kearsipan</option>
-              <option value="14">Pengelola Pelaporan dan Penerimaan</option>
+              <option value="14">Pengelola Pelaporan dan Penerimaan</option> -->
             </select>
           </div>
         </div>

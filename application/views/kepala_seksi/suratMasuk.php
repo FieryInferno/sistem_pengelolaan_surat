@@ -66,7 +66,7 @@
               <option>Pilih Staff</option>
               <?php
                 foreach ($staff as $key) { ?>
-                  <option value="<?= $key['id_user']; ?>"><?= $key['nama']; ?></option>
+                  <option value="<?= $key['id_user']; ?>"><?= $key['nama']; ?> - <?= ucfirst(str_replace('_', ' ', $key['subseksi'])); ?></option>
                 <?php }
               ?>
             </select>
