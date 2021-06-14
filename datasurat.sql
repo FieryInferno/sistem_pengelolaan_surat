@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Jun 2021 pada 10.00
+-- Waktu pembuatan: 14 Jun 2021 pada 02.40
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -35,18 +35,21 @@ CREATE TABLE `data_user` (
   `nik` varchar(191) NOT NULL,
   `nama` varchar(191) NOT NULL,
   `email` varchar(191) NOT NULL,
-  `seksi` varchar(191) DEFAULT NULL
+  `seksi` varchar(191) DEFAULT NULL,
+  `subseksi` varchar(191) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `data_user`
 --
 
-INSERT INTO `data_user` (`id_user`, `username`, `password`, `level`, `nik`, `nama`, `email`, `seksi`) VALUES
-(1, 'admin', 'admin', 'admin', '', '', '', NULL),
-(2, 'kepala_p3d', 'kepala_p3d', 'kepala_p3d', '123456789', 'asdfg', 'adminsimpeg@gmail.com', NULL),
-(3, 'kepala_seksi', 'kepala_seksi', 'kepala_seksi', '123456789', 'kepala tu', 'kepalatu@gmail.com', '1'),
-(4, 'indriya', 'indriya', 'staff', '2141434', 'Indriya', 'indriya@gmail.com', '1');
+INSERT INTO `data_user` (`id_user`, `username`, `password`, `level`, `nik`, `nama`, `email`, `seksi`, `subseksi`) VALUES
+(1, 'admin', 'admin', 'admin', '', '', '', NULL, NULL),
+(2, 'kepala_p3d', 'kepala_p3d', 'kepala_p3d', '123456789', 'asdfg', 'adminsimpeg@gmail.com', NULL, NULL),
+(3, 'kepala_seksi', 'kepala_seksi', 'kepala_seksi', '123456789', 'kepala tu', 'kepalatu@gmail.com', 'penerimaan_dan_penagihan', NULL),
+(4, 'indriya', 'indriya', 'staff', '2141434', 'Indriya', 'indriya@gmail.com', 'penerimaan_dan_penagihan', 'pengelolaan_pelaporan_data_penerimaan'),
+(7, 'ahmadzayyidin', '12345678', 'kepala_seksi', '3213012611980001', 'Ahmad Zayyidin A. Lc. M.AP', 'ahmadzayyidin@gmail.com', 'pendataan_penetapan', 'NULL'),
+(8, 'udinsyarifudin', '12345678', 'staff', '3213012611980001', 'Udin Syarifudin', 'udinsyarifudin@gmail.com', 'pendataan_penetapan', 'pengolah_data_pemeriksa_pajak');
 
 -- --------------------------------------------------------
 
@@ -70,8 +73,8 @@ CREATE TABLE `surat_keluar` (
 --
 
 INSERT INTO `surat_keluar` (`id_surat_keluar`, `tanggal`, `perihal`, `tujuan`, `file`, `isi`, `no_surat`, `status`) VALUES
-(6, '2021-04-13', 'a', 'afdf', '6085893bcf568.pdf', '<p>asdfghjkl</p>\r\n', '800/001-tu', '1'),
-(8, NULL, 'a', 'afdf', NULL, NULL, NULL, '0');
+(9, '2021-06-07', 'a', '', '60be29f6a0823.pdf', '<p>a</p>\r\n', '800/001-tu', '1'),
+(10, '2021-06-08', 'a', 'afdf', '60bf23c8bb18c.pdf', '<p>b</p>\r\n', '800/001-tu', '1');
 
 -- --------------------------------------------------------
 
@@ -98,8 +101,6 @@ CREATE TABLE `surat_masuk` (
 INSERT INTO `surat_masuk` (`id_surat_masuk`, `no_surat`, `tanggal`, `perihal`, `file`, `pengirim`, `seksi`, `status`, `staff`) VALUES
 (1, '123456', '2021-03-29', '-', '123456.pdf', '2', 1, 3, 4),
 (2, '123456', '2021-03-30', 'asdfg', '', '2', 1, 3, 4),
-(3, '145', '2021-03-30', 'asd', 'Surat_Lamaran_PT_TKII_M_Bagas_Setia.pdf', '2', NULL, 0, NULL),
-(4, '123456', '2021-03-30', 'asdfgh', 'Surat_Lamaran_PT_TKII_M_Bagas_Setia1.pdf', '2', NULL, 0, NULL),
 (5, '1', '2021-04-26', 'a', 'document1.pdf', 'a', NULL, 0, NULL),
 (6, '800/001-tu', '2021-06-07', 'a', 'document3.pdf', 'a', NULL, 0, NULL);
 
@@ -133,13 +134,13 @@ ALTER TABLE `surat_masuk`
 -- AUTO_INCREMENT untuk tabel `data_user`
 --
 ALTER TABLE `data_user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
-  MODIFY `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_masuk`

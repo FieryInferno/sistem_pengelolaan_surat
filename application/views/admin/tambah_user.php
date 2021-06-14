@@ -42,20 +42,27 @@
           <label>Seksi</label>
           <select name="seksi" class="form-control">
             <option>Pilih Seksi</option>
-            <option value="3">Tata Usaha</option>
-            <option value="1">Penerimaan dan Pendataan</option>
-            <option value="2">Pendataan Penetapan</option>
-            <option value="4">Pengelola Keuangan</option>
-            <option value="5">Perencanaan dan Program</option>
-            <option value="6">Pengadministrasian Sarana dan Prasarana</option>
-            <option value="7">Pengolah Data Aplikasi dan Pengolahan Data Sistem Keuangan</option>
-            <option value="8">Pengadministrasian Umum</option>
-            <option value="9">Verifikator Pajak</option>
-            <option value="10">Pengolah Data dan Potensi Pajak</option>
-            <option value="11">Pengolah Data Pemeriksa Pajak</option>
-            <option value="12">Pengolah Data Penagihan Pajak</option>
-            <option value="13">Pranata Kearsipan</option>
-            <option value="14">Pengelola Pelaporan dan Penerimaan</option>
+            <option value="tata_usaha">Tata Usaha</option>
+            <option value="penerimaan_dan_penagihan">Penerimaan dan Penagihan</option>
+            <option value="pendataan_penetapan">Pendataan Penetapan</option>
+          </select>
+          <?php echo form_error('role','<div class="text-small text-danger"></div') ?>
+        </div>
+        <div class="form-group">
+          <label>Sub Seksi</label>
+          <select name="subseksi" class="form-control">
+            <option value="NULL">Pilih Sub Seksi</option>
+            <option value="pengelola_keuangan">Pengelola Keuangan</option>
+            <option value="perencanaan_dan_program">Perencanaan dan Program</option>
+            <option value="pengadministrasian_sarana_dan_prasarana">Pengadministrasian Sarana dan Prasarana</option>
+            <option value="pengubah_data_aplikasi_dan_pengelolaan_data_sistem_keuangan">Pengolah Data Aplikasi dan Pengolahan Data Sistem Keuangan</option>
+            <option value="pengadministrasian_umum">Pengadministrasian Umum</option>
+            <option value="verifikator_pajak">Verifikator Pajak</option>
+            <option value="pengolah_data_dan_potensi_pajak">Pengolah Data dan Potensi Pajak</option>
+            <option value="pengolah_data_pemeriksa_pajak">Pengolah Data Pemeriksa Pajak</option>
+            <option value="pengolah_data_penagihan_pajak">Pengolah Data Penagihan Pajak</option>
+            <option value="pranata_kearsipan">Pranata Kearsipan</option>
+            <option value="pengelolaan_pelaporan_dan_penerimaan">Pengelola Pelaporan dan Penerimaan</option>
           </select>
           <?php echo form_error('role','<div class="text-small text-danger"></div') ?>
         </div>

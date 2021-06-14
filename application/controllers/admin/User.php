@@ -23,6 +23,7 @@ class User extends CI_Controller{
 				'level'		  => $this->input->post('role'),
         'seksi'     => $this->input->post('seksi'),
         'nik'       => $this->input->post('nik'),
+        'subseksi'  => $this->input->post('subseksi')
 			]);
       $this->session->set_flashdata('pesan', '
         <div class="alert alert-success alert-dismissible fade show" role="alert">
