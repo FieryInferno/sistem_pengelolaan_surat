@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jun 2021 pada 05.40
+-- Waktu pembuatan: 16 Jun 2021 pada 04.00
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -46,7 +46,7 @@ CREATE TABLE `data_user` (
 INSERT INTO `data_user` (`id_user`, `username`, `password`, `level`, `nik`, `nama`, `email`, `seksi`, `subseksi`) VALUES
 (1, 'admin', 'admin', 'admin', '', '', '', NULL, NULL),
 (2, 'kepala_p3d', 'kepala_p3d', 'kepala_p3d', '123456789', 'asdfg', 'adminsimpeg@gmail.com', NULL, NULL),
-(3, 'kepala_seksi', 'kepala_seksi', 'kepala_seksi', '123456789', 'kepala tu', 'kepalatu@gmail.com', 'penerimaan_dan_penagihan', NULL),
+(3, 'radenajeng', '12345678', 'kepala_seksi', '123456789', 'Raden Ajeng Crysanti S.Sos', 'kepalatu@gmail.com', 'penerimaan_dan_penagihan', NULL),
 (4, 'indriya', 'indriya', 'staff', '2141434', 'Indriya', 'indriya@gmail.com', 'penerimaan_dan_penagihan', 'pengelolaan_pelaporan_data_penerimaan'),
 (7, 'ahmadzayyidin', '12345678', 'kepala_seksi', '3213012611980001', 'Ahmad Zayyidin A. Lc. M.AP', 'ahmadzayyidin@gmail.com', 'pendataan_penetapan', 'NULL'),
 (8, 'udinsyarifudin', '12345678', 'staff', '3213012611980001', 'Udin Syarifudin', 'udinsyarifudin@gmail.com', 'pendataan_penetapan', 'pengolah_data_pemeriksa_pajak'),
@@ -111,7 +111,8 @@ INSERT INTO `surat_masuk` (`id_surat_masuk`, `no_surat`, `tanggal`, `perihal`, `
 (1, '123456', '2021-03-29', '-', '123456.pdf', '2', '1', 3, '4'),
 (2, '123456', '2021-03-30', 'asdfg', '', '2', '1', 3, '4'),
 (5, '1', '2021-04-26', 'a', 'document1.pdf', 'a', 'penerimaan_dan_penagihan', 2, '4'),
-(6, '800/001-tu', '2021-06-07', 'a', 'document3.pdf', 'a', NULL, 0, NULL);
+(6, '800/001-tu', '2021-06-07', 'a', 'document3.pdf', 'a', NULL, 0, NULL),
+(7, '321301', '2021-06-15', 'asd', 'document4.pdf', 'asd', 'pendataan_penetapan', 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -155,7 +156,7 @@ ALTER TABLE `surat_keluar`
 -- AUTO_INCREMENT untuk tabel `surat_masuk`
 --
 ALTER TABLE `surat_masuk`
-  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

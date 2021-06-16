@@ -4,7 +4,7 @@
   </div>
   <div class="card" style="width: 60%;">
     <div class="card-body">
-      <form method="POST" action="<?php echo base_url('admin/surat_masuk/tambah') ?>" enctype="multipart/form-data">
+      <form method="POST" action="<?php echo base_url('admin/surat_masuk/upload') ?>" enctype="multipart/form-data">
         <div class="form-group">
           <label>Nomor Surat</label>
           <input type="text" name="no_surat" class="form-control">
