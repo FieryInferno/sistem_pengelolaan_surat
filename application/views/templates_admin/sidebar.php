@@ -59,8 +59,14 @@
                 <span>Tracking Surat</span>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url(); ?>admin/kelola_staff">
+                <i class="fas fa-fw fa-database"></i>
+                <span>Kelola Staff</span>
+              </a>
+            </li>
             <?php break;
-            case 'kepala_p3d': ?>
+          case 'kepala_p3d': ?>
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('kepala_p3d') ?>">
                   <i class="fas fa-fw fa-tachometer-alt"></i>
