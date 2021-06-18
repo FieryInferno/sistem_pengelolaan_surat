@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Jun 2021 pada 04.00
+-- Waktu pembuatan: 18 Jun 2021 pada 04.56
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -47,7 +47,7 @@ INSERT INTO `data_user` (`id_user`, `username`, `password`, `level`, `nik`, `nam
 (1, 'admin', 'admin', 'admin', '', '', '', NULL, NULL),
 (2, 'kepala_p3d', 'kepala_p3d', 'kepala_p3d', '123456789', 'asdfg', 'adminsimpeg@gmail.com', NULL, NULL),
 (3, 'radenajeng', '12345678', 'kepala_seksi', '123456789', 'Raden Ajeng Crysanti S.Sos', 'kepalatu@gmail.com', 'penerimaan_dan_penagihan', NULL),
-(4, 'indriya', 'indriya', 'staff', '2141434', 'Indriya', 'indriya@gmail.com', 'penerimaan_dan_penagihan', 'pengelolaan_pelaporan_data_penerimaan'),
+(4, 'ryanto', '12345678', 'staff', '2141434', 'ryanto', 'ryanto@gmail.com', 'penerimaan_dan_penagihan', 'pengelolaan_pelaporan_data_penerimaan'),
 (7, 'ahmadzayyidin', '12345678', 'kepala_seksi', '3213012611980001', 'Ahmad Zayyidin A. Lc. M.AP', 'ahmadzayyidin@gmail.com', 'pendataan_penetapan', 'NULL'),
 (8, 'udinsyarifudin', '12345678', 'staff', '3213012611980001', 'Udin Syarifudin', 'udinsyarifudin@gmail.com', 'pendataan_penetapan', 'pengolah_data_pemeriksa_pajak'),
 (9, 'imanrochiman', '12345678', 'staff', '3213012611980001', 'Iman Rochiman', 'imanrochiman@gmail.com', 'penerimaan_dan_penagihan', 'pranata_kearsipan'),
@@ -144,7 +144,7 @@ ALTER TABLE `surat_masuk`
 -- AUTO_INCREMENT untuk tabel `data_user`
 --
 ALTER TABLE `data_user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_keluar`

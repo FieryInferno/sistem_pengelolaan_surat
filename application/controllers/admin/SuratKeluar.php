@@ -46,7 +46,7 @@ class SuratKeluar extends CI_Controller{
     $data           = $this->db->get_where('surat_keluar', [
       'id_surat_keluar' => $id_surat_keluar
     ])->row_array();
-		$data['title']  = "Tambah Surat Keluar";
+		$data['title']  = "Buat Surat Keluar";
     $suratTerbaru   = $this->SuratModel->getSuratTerbaru();
     if ($suratTerbaru) {
       $urutanSurat    = substr($suratTerbaru['no_surat'], 4, 3);

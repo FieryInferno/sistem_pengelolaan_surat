@@ -15,6 +15,9 @@ $route['admin/surat_masuk/hapus/(:any)']  = 'admin/SuratMasuk/hapus/$1';
 $route['admin/tracking_surat']            = 'admin/SuratMasuk/tracking';
 $route['admin/user/tambah']               = 'admin/user/tambahData';
 $route['admin/kelola_staff']              = 'admin/Staff';
+$route['admin/kelola_staff/tambah']       = 'admin/Staff/tambah';
+$route['admin/kelola_staff/hapus/(:any)'] = 'admin/Staff/hapus/$1';
+$route['admin/kelola_staff/edit/(:any)']  = 'admin/Staff/edit/$1';
 
 $route['kepala_p3d']            = 'kepala_p3d/Dashboard';
 $route['kepala_p3d/surat']      = 'kepala_p3d/Surat';
