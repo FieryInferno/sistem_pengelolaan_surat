@@ -33,7 +33,6 @@
                     <?php break;
                   case '1': ?>
                     <a href="<?= base_url('assets/' . $m['file']); ?>" class="btn btn-primary"><i class="fas fa-eye"></i></a>
-                    <a href="<?= base_url('admin/surat_keluar/edit/' . $m['id_surat_keluar']); ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                     <?php break;
                   
                   default: ?>
