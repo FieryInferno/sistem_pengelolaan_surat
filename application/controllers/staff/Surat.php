@@ -15,10 +15,10 @@ class Surat extends CI_Controller {
 
   public function tindaklanjuti($id_surat_masuk)
   {
-    $this->db->where('id_surat_masuk', $id_surat_masuk);
     $this->db->update('surat_masuk', [
-      'status'  => '3'
-    ]);
+      'status'    => '3',
+      'komentar'  => $this->input->post('komentar')
+    ], ['id_surat_masuk'  => $id_surat_masuk]);
     $this->session->set_flashdata('pesan', '
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Sukses!</strong> Surat sudah ditindaklanjuti.

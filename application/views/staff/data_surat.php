@@ -33,7 +33,34 @@
             <?php
               switch ($m['status']) {
                 case '2': ?>
-                  <a href="<?= base_url('staff/surat/tindaklanjuti/' . $m['id_surat_masuk']); ?>" class="btn btn-primary">Tindaklanjuti</a>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?= $m['id_surat_masuk']; ?>">
+                    Tindaklanjuti
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal<?= $m['id_surat_masuk']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Tindaklanjuti</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form action="<?= base_url('staff/surat/tindaklanjuti/' . $m['id_surat_masuk']); ?>" method="post">
+                          <div class="modal-body">
+                            <label for="">Komentar</label>
+                            <textarea name="komentar" id="" cols="30" rows="10" class="form-control"></textarea>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Kirim</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                   <?php break;
                 
                 default: ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Jun 2021 pada 04.56
+-- Waktu pembuatan: 20 Jun 2021 pada 03.45
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -100,19 +100,20 @@ CREATE TABLE `surat_masuk` (
   `pengirim` varchar(191) NOT NULL,
   `seksi` varchar(191) DEFAULT NULL,
   `status` int(191) NOT NULL DEFAULT 0,
-  `staff` varchar(191) DEFAULT NULL
+  `staff` varchar(191) DEFAULT NULL,
+  `komentar` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `surat_masuk`
 --
 
-INSERT INTO `surat_masuk` (`id_surat_masuk`, `no_surat`, `tanggal`, `perihal`, `file`, `pengirim`, `seksi`, `status`, `staff`) VALUES
-(1, '123456', '2021-03-29', '-', '123456.pdf', '2', '1', 3, '4'),
-(2, '123456', '2021-03-30', 'asdfg', '', '2', '1', 3, '4'),
-(5, '1', '2021-04-26', 'a', 'document1.pdf', 'a', 'penerimaan_dan_penagihan', 2, '4'),
-(6, '800/001-tu', '2021-06-07', 'a', 'document3.pdf', 'a', NULL, 0, NULL),
-(7, '321301', '2021-06-15', 'asd', 'document4.pdf', 'asd', 'pendataan_penetapan', 1, NULL);
+INSERT INTO `surat_masuk` (`id_surat_masuk`, `no_surat`, `tanggal`, `perihal`, `file`, `pengirim`, `seksi`, `status`, `staff`, `komentar`) VALUES
+(1, '123456', '2021-03-29', '-', '123456.pdf', '2', '1', 3, '4', NULL),
+(2, '123456', '2021-03-30', 'asdfg', '', '2', '1', 3, '4', NULL),
+(5, '1', '2021-04-26', 'a', 'document1.pdf', 'a', 'penerimaan_dan_penagihan', 3, '4', 'Sudah dikerjakan'),
+(6, '800/001-tu', '2021-06-07', 'a', 'document3.pdf', 'a', NULL, 0, NULL, NULL),
+(7, '321301', '2021-06-15', 'asd', 'document4.pdf', 'asd', 'pendataan_penetapan', 1, NULL, NULL);
 
 --
 -- Indexes for dumped tables
