@@ -54,7 +54,7 @@ class SuratMasuk extends CI_Controller{
   public function print()
   {
     ob_start();
-      $data['masuk']  = $this->SuratModel->get('surat_masuk', '1');
+      $data['masuk']  = $this->SuratModel->get('surat_masuk');
       $this->load->view('laporan_surat_masuk.php', $data);
       $html = ob_get_contents();
     ob_end_clean();

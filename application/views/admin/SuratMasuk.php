@@ -5,7 +5,7 @@
   <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/surat_masuk/upload') ?>">
     <i class="fas fa-plus"> Upload Surat</i>
   </a>
-  <a class="btn btn-sm btn-primary mb-3" href="<?= base_url(); ?>admin/SuratKeluar/print">Cetak Laporan</a>
+  <a class="btn btn-sm btn-primary mb-3" href="<?= base_url(); ?>admin/SuratMasuk/print" target="_blank">Cetak Laporan</a>
   <?php
     if ($this->session->pesan) {
       echo $this->session->pesan;

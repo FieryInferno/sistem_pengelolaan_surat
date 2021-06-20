@@ -15,32 +15,29 @@
       <h1 class="h3 mb-0 text-gray-800 text-center">Laporan Surat Masuk</h1>
     </div>
     <table class="table table-bordered table-striped mt-2" id="myTable">
-      <thead>
+    <thead>
+      <tr>
+        <th class ="text-center">No</th>
+        <th class ="text-center">Nomor Surat</th>
+        <th class ="text-center">Pengirim</th>
+        <th class ="text-center">Tanggal Surat</th>
+        <th class ="text-center">Perihal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php 
+        $no=1; 
+        foreach ($masuk as $m) : ?>
         <tr>
-          <th class ="text-center">No</th>
-          <th class ="text-center">Nomor Surat</th>
-          <th class ="text-center">Pengirim</th>
-          <th class ="text-center">Tanggal Surat</th>
-          <th class ="text-center">Perihal</th>
-          <th class ="text-center">Tujuan</th>
+          <td><?php echo $no++ ?></td>
+          <td><?php echo $m['no_surat'] ?></td>
+          <td><?php echo $m['pengirim'] ?></td>
+          <td><?php echo $m['tanggal'] ?></td>
+          <td><?php echo $m['perihal'] ?></td>
         </tr>
-      </thead>
-      <tbody>
-        <?php 
-          $no=1; 
-          foreach ($masuk as $m) : ?>
-            <tr>
-              <td><?php echo $no++ ?></td>
-              <td><?php echo $m['no_surat'] ?></td>
-              <td><?php echo $m['pengirim'] ?></td>
-              <td><?php echo $m['tanggal'] ?></td>
-              <td><?php echo $m['perihal'] ?></td>
-              <td><?php echo $m['tujuan'] ?></td>
-            </tr>
-          <?php endforeach; 
-        ?>
-      </tbody>
-    </table>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
   </div>
 </body>
 </html>
