@@ -20,13 +20,6 @@
                 <span>Dashboard</span>
               </a>
             </li>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-              <a class="nav-link" href="<?= base_url(); ?>admin/user">
-                <i class="fas fa-fw fa-database"></i>
-                <span>Data User</span>
-              </a>
-            </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
