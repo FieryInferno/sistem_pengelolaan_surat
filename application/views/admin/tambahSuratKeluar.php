@@ -5,6 +5,7 @@
   <div class="card" style="width: 60%;">
     <div class="card-body">
       <form method="POST" action="<?php echo base_url('admin/surat_keluar/' . $id_surat_keluar) ?>" enctype="multipart/form-data">
+        <input type="hidden" name="urutan_surat" value="<?= $urutan_surat; ?>">
         <div class="form-group">
           <label>No. Surat</label>
           <input type="text" name="no_surat" class="form-control" value="<?= $no_surat; ?>" readonly>

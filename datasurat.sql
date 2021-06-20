@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jun 2021 pada 03.45
+-- Waktu pembuatan: 20 Jun 2021 pada 07.01
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -74,16 +74,18 @@ CREATE TABLE `surat_keluar` (
   `file` varchar(191) DEFAULT NULL,
   `isi` text DEFAULT NULL,
   `no_surat` varchar(191) DEFAULT NULL,
-  `status` enum('0','1') NOT NULL
+  `status` enum('0','1') NOT NULL,
+  `urutan_surat` int(191) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `surat_keluar`
 --
 
-INSERT INTO `surat_keluar` (`id_surat_keluar`, `tanggal`, `perihal`, `tujuan`, `file`, `isi`, `no_surat`, `status`) VALUES
-(9, '2021-06-07', 'a', '', '60be29f6a0823.pdf', '<p>a</p>\r\n', '800/001-tu', '1'),
-(10, '2021-06-08', 'a', 'afdf', '60bf23c8bb18c.pdf', '<p>b</p>\r\n', '800/001-tu', '1');
+INSERT INTO `surat_keluar` (`id_surat_keluar`, `tanggal`, `perihal`, `tujuan`, `file`, `isi`, `no_surat`, `status`, `urutan_surat`) VALUES
+(9, '2021-06-07', 'a', '', '60be29f6a0823.pdf', '<p>a</p>\r\n', '800/001-tu', '1', 1),
+(10, '2021-06-08', 'a', 'afdf', '60bf23c8bb18c.pdf', '<p>b</p>\r\n', '800/002-tu', '1', 2),
+(11, '2021-06-20', 'a', 'afdf', '60cecb871113e.pdf', '<p>qwertyuiop</p>\r\n', '800/003-tu', '1', 3);
 
 -- --------------------------------------------------------
 
@@ -151,7 +153,7 @@ ALTER TABLE `data_user`
 -- AUTO_INCREMENT untuk tabel `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
-  MODIFY `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_masuk`

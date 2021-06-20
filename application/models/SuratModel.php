@@ -86,19 +86,19 @@ class SuratModel extends CI_Model{
 
   public function buatSuratKeluar($filename, $id_surat_keluar)
   {
-    $this->db->where('id_surat_keluar', $id_surat_keluar);
     $this->db->update('surat_keluar', [
-      'no_surat'  => $this->input->post('no_surat'),
-      'tanggal'   => $this->input->post('tanggal'),
-      'file'      => $filename . '.pdf',
-      'isi'       => $this->input->post('isi'),
-      'status'    => '1'
-    ]);
+      'no_surat'      => $this->input->post('no_surat'),
+      'tanggal'       => $this->input->post('tanggal'),
+      'file'          => $filename . '.pdf',
+      'isi'           => $this->input->post('isi'),
+      'status'        => '1',
+      'urutan_surat'  => $this->input->post('urutan_surat')
+    ], ['id_surat_keluar' => $id_surat_keluar]);
   }
 
   public function getSuratTerbaru()
   {
-    $this->db->order_by('id_surat_keluar', 'DESC');
+    $this->db->order_by('urutan_surat', 'DESC');
     return $this->db->get('surat_keluar')->row_array();
   }
 

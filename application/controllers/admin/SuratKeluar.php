@@ -49,8 +49,7 @@ class SuratKeluar extends CI_Controller{
 		$data['title']  = "Buat Surat Keluar";
     $suratTerbaru   = $this->SuratModel->getSuratTerbaru();
     if ($suratTerbaru) {
-      $urutanSurat    = substr($suratTerbaru['no_surat'], 4, 3);
-      $urutanSurat    = (integer) $urutanSurat + 1;
+      $urutanSurat    = (integer) $suratTerbaru['urutan_surat'] + 1;
       switch (strlen($urutanSurat)) {
         case '1':
           $data['no_surat'] = '800/00' . $urutanSurat . '-tu';
@@ -69,6 +68,7 @@ class SuratKeluar extends CI_Controller{
     } else {
       $data['no_surat'] = '800/001-tu';
     }
+    $data['urutan_surat'] = $urutanSurat;
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('admin/tambahSuratKeluar',$data);
