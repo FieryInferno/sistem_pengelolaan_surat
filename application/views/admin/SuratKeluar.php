@@ -2,7 +2,7 @@
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800"><?php echo $title ?></h1>
   </div>
-  <a class="btn btn-sm btn-primary mb-3" href="<?= base_url(); ?>admin/SuratKeluar/print">Cetak Laporan</a>
+  <a class="btn btn-sm btn-primary mb-3" href="<?= base_url(); ?>admin/SuratKeluar/print" target="_blank">Cetak Laporan</a>
   <?php echo $this->session->flashdata('pesan') ?>
   <table class="table table-bordered table-striped mt-2" id="myTable">
     <thead>
@@ -29,10 +29,10 @@
               <?php
                 switch ($m['status']) {
                   case '0': ?>
-                    <a href="<?= base_url('admin/surat_keluar/' . $m['id_surat_keluar']); ?>" class="btn btn-primary">Buat Surat</a>
+                    <a href="<?= base_url('admin/surat_keluar/' . $m['id_pengajuan_surat_keluar']); ?>" class="btn btn-primary">Buat Surat</a>
                     <?php break;
                   case '1': ?>
-                    <a href="<?= base_url('assets/' . $m['file']); ?>" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                    <a href="<?= base_url('assets/' . $m['file']); ?>" class="btn btn-primary" target="_blank"><i class="fas fa-eye"></i></a>
                     <?php break;
                   
                   default: ?>

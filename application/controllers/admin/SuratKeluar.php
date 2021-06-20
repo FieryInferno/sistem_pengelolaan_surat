@@ -43,8 +43,8 @@ class SuratKeluar extends CI_Controller{
       ');
       redirect('admin/SuratKeluar');
     }
-    $data           = $this->db->get_where('surat_keluar', [
-      'id_surat_keluar' => $id_surat_keluar
+    $data           = $this->db->get_where('pengajuan_surat_keluar', [
+      'id_pengajuan_surat_keluar' => $id_surat_keluar
     ])->row_array();
 		$data['title']  = "Buat Surat Keluar";
     $suratTerbaru   = $this->SuratModel->getSuratTerbaru();
@@ -65,10 +65,11 @@ class SuratKeluar extends CI_Controller{
           # code...
           break;
       }
+      $data['urutan_surat'] = $urutanSurat;
     } else {
-      $data['no_surat'] = '800/001-tu';
+      $data['no_surat']     = '800/001-tu';
+      $data['urutan_surat'] = 1;
     }
-    $data['urutan_surat'] = $urutanSurat;
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('admin/tambahSuratKeluar',$data);

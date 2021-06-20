@@ -39,16 +39,7 @@ class Staff extends CI_Controller {
   public function edit($id_user)
   {
 		if ($this->input->post()) {
-			$this->db->update('data_user', [
-        'nama'      => $this->input->post('nama'),
-        'email'     => $this->input->post('email'),
-				'username'	=> $this->input->post('username'),
-				'password'	=> $this->input->post('password'),
-				'level'		  => $this->input->post('role'),
-        'seksi'     => $this->input->post('seksi'),
-        'nik'       => $this->input->post('nik'),
-        'subseksi'  => $this->input->post('subseksi')
-			], ['id_user' => $id_user]);
+      $this->StaffModel->edit($id_user);
       $this->session->set_flashdata('pesan', '
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>Sukses!</strong> Berhasil tambah data user.
@@ -59,8 +50,10 @@ class Staff extends CI_Controller {
       ');
 			redirect('admin/kelola_staff');
 		}
-    $data           = $this->StaffModel->getById($id_user);
-		$data['title']  = "Edit Staff";
+    $data             = $this->StaffModel->getById($id_user);
+		$data['title']    = "Edit Staff";
+    $data['seksi']    = $this->ModelSeksi->getAll();
+    $data['id_subseksi'] = $this->ModelSubseksi->getAll();
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('admin/editStaff',$data);
@@ -69,7 +62,9 @@ class Staff extends CI_Controller {
 
   public function hapus($id_user)
   {
-    $this->db->delete('data_user', ['id_user' => $id_user]);
+    $this->db->delete('user', ['id_user' => $id_user]);
+    $this->db->delete('kepala_seksi', ['id_user' => $id_user]);
+    $this->db->delete('staff', ['id_user' => $id_user]);
     $this->session->set_flashdata('pesan', '
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Sukses!</strong> Berhasil hapus data user.

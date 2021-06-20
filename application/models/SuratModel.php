@@ -66,7 +66,9 @@ class SuratModel extends CI_Model{
         }
         break;
       case 'surat_keluar':
-        return $this->db->get('surat_keluar')->result_array();
+        $this->db->join('surat_keluar', 'surat_keluar.id_pengajuan_surat_keluar = pengajuan_surat_keluar.id_pengajuan_surat_keluar', 'left');
+        $this->db->select('pengajuan_surat_keluar.*, surat_keluar.no_surat, surat_keluar.tanggal, surat_keluar.isi, surat_keluar.file');
+        return $this->db->get('pengajuan_surat_keluar')->result_array();
         break;
       
       default:
@@ -86,14 +88,17 @@ class SuratModel extends CI_Model{
 
   public function buatSuratKeluar($filename, $id_surat_keluar)
   {
-    $this->db->update('surat_keluar', [
-      'no_surat'      => $this->input->post('no_surat'),
-      'tanggal'       => $this->input->post('tanggal'),
-      'file'          => $filename . '.pdf',
-      'isi'           => $this->input->post('isi'),
-      'status'        => '1',
-      'urutan_surat'  => $this->input->post('urutan_surat')
-    ], ['id_surat_keluar' => $id_surat_keluar]);
+    $this->db->insert('surat_keluar', [
+      'id_pengajuan_surat_keluar' => $id_surat_keluar,
+      'no_surat'                  => $this->input->post('no_surat'),
+      'tanggal'                   => $this->input->post('tanggal'),
+      'file'                      => $filename . '.pdf',
+      'isi'                       => $this->input->post('isi'),
+      'urutan_surat'              => $this->input->post('urutan_surat')
+    ]);
+    $this->db->update('pengajuan_surat_keluar', [
+      'status'  => 1
+    ], ['id_pengajuan_surat_keluar' => $id_surat_keluar]);
   }
 
   public function getSuratTerbaru()
@@ -104,35 +109,39 @@ class SuratModel extends CI_Model{
 
   public function disposisi()
   {
-    $this->db->where('id_surat_masuk', $this->input->post('id_surat_masuk'));
-    $this->db->update('surat_masuk', [
-      'seksi'   => $this->input->post('seksi'),
-      'status'  => '1'
+    $this->db->insert('disposisi', [
+      'id_surat_masuk'  => $this->input->post('id_surat_masuk'),
+      'seksi'           => $this->input->post('seksi'),
+      'status'          => '1'
     ]);
+    $this->db->update('surat_masuk', ['status' => '1'], ['id_surat_masuk' => $this->input->post('id_surat_masuk')]);
   }
 
   public function getDisposisi()
   {
-    $this->db->where_not_in('status', ['0']);
-    return $this->db->get_where('surat_masuk', [
-      'seksi' => $this->session->seksi
+    $this->db->where_not_in('disposisi.status', ['0']);
+    $this->db->join('surat_masuk', 'disposisi.id_surat_masuk = surat_masuk.id_surat_masuk');
+    return $this->db->get_where('disposisi', [
+      'disposisi.seksi' => $this->session->id_seksi
     ])->result_array();
   }
 
   public function disposisiKepalaSeksi()
   {
-    $this->db->where('id_surat_masuk', $this->input->post('id_surat_masuk'));
-    $this->db->update('surat_masuk', [
-      'staff'   => $this->input->post('staff'),
+    $this->db->update('disposisi', [
+      'subseksi'   => $this->input->post('staff'),
       'status'  => '2'
-    ]);
+    ], ['id_surat_masuk', $this->input->post('id_surat_masuk')]);
+    $this->db->update('surat_masuk', ['status' => '2'], ['id_surat_masuk' => $this->input->post('id_surat_masuk')]);
   }
 
   public function getDisposisiStaff()
   {
-    $this->db->where_not_in('status', ['0', '1']);
-    return $this->db->get_where('surat_masuk', [
-      'seksi' => $this->session->seksi
+    $this->db->where_not_in('disposisi.status', ['0', '1']);
+    $this->db->join('surat_masuk', 'disposisi.id_surat_masuk = surat_masuk.id_surat_masuk');
+    return $this->db->get_where('disposisi', [
+      'seksi'     => $this->session->id_seksi,
+      'subseksi'  => $this->session->id_staff
     ])->result_array();
   }
 
@@ -182,11 +191,12 @@ class SuratModel extends CI_Model{
 
   public function hapusSuratKeluar($id_surat_keluar)
   {
-    $data = $this->db->get_where('surat_keluar', ['id_surat_keluar' => $id_surat_keluar])->row_array();
+    $data = $this->db->get_where('surat_keluar', ['id_pengajuan_surat_keluar' => $id_surat_keluar])->row_array();
     if (file_exists('./assets/' . $data['file'])) {
       unlink('./assets/' . $data['file']);
     }
     $this->db->delete('surat_keluar', ['id_surat_keluar'  => $id_surat_keluar]);
+    $this->db->delete('pengajuan_surat_keluar', ['id_pengajuan_surat_keluar'  => $id_surat_keluar]);
   }
 }
 

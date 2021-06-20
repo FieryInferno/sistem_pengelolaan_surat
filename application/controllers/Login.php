@@ -42,9 +42,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             redirect('kepala_p3d');
             break;
           case 'kepala_seksi':
+            $akun = $this->db->get_where('kepala_seksi', ['id_user' => $surat['id_user']])->row_array();
+            $this->session->set_userdata([
+              'nik'             => $akun['nik'],
+              'nama'            => $akun['nama'],
+              'email'           => $akun['email'],
+              'id_seksi'        => $akun['id_seksi'],
+              'id_kepala_seksi' => $akun['id_kepala_seksi']
+            ]);
             redirect('kepala_seksi');
             break;
           case 'staff':
+            $akun = $this->db->get_where('staff', ['id_user' => $surat['id_user']])->row_array();
+            $this->session->set_userdata([
+              'nik'       => $akun['nik'],
+              'nama'      => $akun['nama'],
+              'email'     => $akun['email'],
+              'id_seksi'  => $akun['id_seksi'],
+              'subseksi'  => $akun['subseksi'],
+              'id_staff'  => $akun['id_staff']
+            ]);
             redirect('staff');
             break;
           

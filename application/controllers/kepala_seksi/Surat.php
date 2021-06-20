@@ -11,9 +11,9 @@ class Surat extends CI_Controller {
 	{
 		$data['title']  = "Data Surat Masuk";
 		$data['surat']  = $this->SuratModel->getDisposisi('surat_masuk');
-		$data['staff']  = $this->db->get_where('data_user', [
-      'seksi' => $this->session->seksi,
-      'level' => 'staff'
+    $this->db->join('subseksi', 'staff.subseksi = subseksi.id_subseksi');
+		$data['staff']  = $this->db->get_where('staff', [
+      'staff.id_seksi' => $this->session->id_seksi
     ])->result_array();
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');

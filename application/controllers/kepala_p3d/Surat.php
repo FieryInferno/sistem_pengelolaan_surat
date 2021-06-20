@@ -7,6 +7,7 @@ class Surat extends CI_Controller {
 	{
 		$data['title']  = "Data Surat";
 		$data['surat']  = $this->SuratModel->get('surat_masuk');
+    $data['seksi']  = $this->ModelSeksi->getAll();
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('kepala_p3d/data_surat');

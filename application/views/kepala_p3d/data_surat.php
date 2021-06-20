@@ -52,7 +52,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Disposisi</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -64,19 +64,11 @@
             <label>Diteruskan ke</label>
             <select name="seksi" class="form-control">
               <option>Pilih Seksi</option>
-              <option value="penerimaan_dan_penagihan">Penerimaan dan Penagihan</option>
-              <option value="pendataan_penetapan">Pendataan Penetapan</option>
-              <!-- <option value="4">Pengelola Keuangan</option>
-              <option value="5">Perencanaan dan Program</option>
-              <option value="6">Pengadministrasian Sarana dan Prasarana</option>
-              <option value="7">Pengolah Data Aplikasi dan Pengolahan Data Sistem Keuangan</option>
-              <option value="8">Pengadministrasian Umum</option>
-              <option value="9">Verifikator Pajak</option>
-              <option value="10">Pengolah Data dan Potensi Pajak</option>
-              <option value="11">Pengolah Data Pemeriksa Pajak</option>
-              <option value="12">Pengolah Data Penagihan Pajak</option>
-              <option value="13">Pranata Kearsipan</option>
-              <option value="14">Pengelola Pelaporan dan Penerimaan</option> -->
+              <?php
+                foreach ($seksi as $key) { ?>
+                  <option value="<?= $key['id_seksi']; ?>"><?= $key['nama_seksi']; ?></option>
+                <?php }
+              ?>
             </select>
           </div>
         </div>

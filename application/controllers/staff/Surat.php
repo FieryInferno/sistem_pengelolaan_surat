@@ -15,9 +15,12 @@ class Surat extends CI_Controller {
 
   public function tindaklanjuti($id_surat_masuk)
   {
-    $this->db->update('surat_masuk', [
+    $this->db->update('disposisi', [
       'status'    => '3',
       'komentar'  => $this->input->post('komentar')
+    ], ['id_surat_masuk'  => $id_surat_masuk]);
+    $this->db->update('surat_masuk', [
+      'status'    => '3'
     ], ['id_surat_masuk'  => $id_surat_masuk]);
     $this->session->set_flashdata('pesan', '
       <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -33,7 +36,7 @@ class Surat extends CI_Controller {
   public function pengajuan()
   {
 		$data['title']  = "Pengajuan Surat";
-		$data['surat']  = $this->db->get('surat_keluar')->result_array();
+		$data['surat']  = $this->db->get('pengajuan_surat_keluar')->result_array();
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('staff/pengajuanSurat');
@@ -43,9 +46,11 @@ class Surat extends CI_Controller {
   public function tambahPengajuan()
   {
     if ($this->input->post()) {
-      $this->db->insert('surat_keluar', [
+      $this->db->insert('pengajuan_surat_keluar', [
+        'id_staff'  => $this->session->id_staff,
         'perihal' => $this->input->post('perihal'),
-        'tujuan'  => $this->input->post('tujuan')
+        'tujuan'  => $this->input->post('tujuan'),
+        'status'  => 0
       ]);
       $this->session->set_flashdata('pesan', '
         <div class="alert alert-success alert-dismissible fade show" role="alert">

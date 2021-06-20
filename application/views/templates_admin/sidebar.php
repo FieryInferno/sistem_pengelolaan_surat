@@ -92,9 +92,9 @@
                 <a class="nav-link" href="<?= base_url(); ?>kepala_seksi/surat">
                   <i class="fas fa-fw fa-database"></i>
                   <?php 
-                    $jumlah = $this->db->get_where('surat_masuk', [
+                    $jumlah = $this->db->get_where('disposisi', [
                       'status'  => '1',
-                      'seksi'   => $this->session->seksi
+                      'seksi'   => $this->session->id_seksi
                     ])->num_rows(); 
                   ?>
                   <span>Data Surat 
@@ -119,9 +119,10 @@
                 <a class="nav-link" href="<?= base_url(); ?>staff/surat">
                   <i class="fas fa-fw fa-database"></i>
                   <?php 
-                    $jumlah = $this->db->get_where('surat_masuk', [
-                      'status'  => '2',
-                      'seksi'   => $this->session->seksi
+                    $jumlah = $this->db->get_where('disposisi', [
+                      'status'    => '2',
+                      'seksi'     => $this->session->id_seksi,
+                      'subseksi'  => $this->session->id_staff
                     ])->num_rows(); 
                   ?>
                   <span>Data Surat

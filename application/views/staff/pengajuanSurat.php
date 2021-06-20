@@ -42,7 +42,7 @@
                   break;
               }
             ?>
-            <a href="<?= base_url('staff/pengajuan_surat/hapus/' . $m['id_surat_keluar']); ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+            <a href="<?= base_url('staff/pengajuan_surat/hapus/' . $m['id_pengajuan_surat_keluar']); ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
           </td>
         </tr>
       <?php endforeach; ?>
