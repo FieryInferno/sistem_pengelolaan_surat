@@ -118,7 +118,7 @@ class SuratMasuk extends CI_Controller{
       redirect('admin/surat_masuk');
     }
 		$data           = $this->db->get_where('surat_masuk', ['id_surat_masuk' => $id_surat_masuk])->row_array();
-		$data['title']  = "Edit Surat Masuk";
+		$data['title']  = "Ubah Surat Masuk";
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('admin/editSuratMasuk',$data);
