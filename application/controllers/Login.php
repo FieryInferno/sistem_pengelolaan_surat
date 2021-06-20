@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     {
       $username = $this->input->post('username');
       $password = $this->input->post('password');
-      $surat    = $this->db->get_where('data_user', [
+      $surat    = $this->db->get_where('user', [
         'username'  => $username,
         'password'  => $password
       ])->row_array();
@@ -33,8 +33,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           'id_user'   => $surat['id_user'],
           'username'  => $surat['username'],
           'level'     => $surat['level'],
-          'nama'      => $surat['nama'],
-          'seksi'     => $surat['seksi']
         ]);
         switch ($surat['level']) {
           case 'admin':

@@ -24,7 +24,7 @@
             <li class="nav-item">
               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-mail-bulk"></i>
-                <?php $jumlah = $this->db->get_where('surat_keluar', ['status'  => '0'])->num_rows(); ?>
+                <?php $jumlah = $this->db->get_where('pengajuan_surat_keluar', ['status'  => '0'])->num_rows(); ?>
                 <span>Transaksi Surat 
                   <?php
                     if ($jumlah > 0) { ?>

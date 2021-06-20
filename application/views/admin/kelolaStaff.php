@@ -21,12 +21,12 @@
         <?php  
           foreach ($staff as $m) : ?>
             <tr>
-              <td><?php echo $m['nik'] ?></td>
-              <td><?php echo $m['nama'] ?></td>
-              <td><?php echo $m['username'] ?></td>
-              <td><?php echo $m['email'] ?></td>
-              <td><?php echo $m['seksi'] ?></td>
-              <td><?php echo $m['subseksi'] ?></td>
+              <td><?= isset($m['nik']) ? $m['nik'] : '' ; ?></td>
+              <td><?= isset($m['nama']) ? $m['nama'] : '' ; ?></td>
+              <td><?= isset($m['username']) ? $m['username'] : '' ; ?></td>
+              <td><?= isset($m['email']) ? $m['email'] : '' ; ?></td>
+              <td><?= isset($m['nama_seksi']) ? $m['nama_seksi'] : '' ; ?></td>
+              <td><?= isset($m['nama_subseksi']) ? $m['nama_subseksi'] : '' ; ?></td>
               <td>
                 <a class="btn btn-primary" href="<?= base_url('admin/kelola_staff/edit/' . $m['id_user']); ?>"><i class="fas fa-edit"></i></a>
                 <a class="btn btn-danger" href="<?= base_url('admin/kelola_staff/hapus/' . $m['id_user']); ?>"><i class="fas fa-trash"></i></a>

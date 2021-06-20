@@ -16,16 +16,7 @@ class Staff extends CI_Controller {
   public function tambah()
   {
 		if ($this->input->post()) {
-			$this->db->insert('data_user', [
-        'nama'      => $this->input->post('nama'),
-        'email'     => $this->input->post('email'),
-				'username'	=> $this->input->post('username'),
-				'password'	=> $this->input->post('password'),
-				'level'		  => $this->input->post('role'),
-        'seksi'     => $this->input->post('seksi'),
-        'nik'       => $this->input->post('nik'),
-        'subseksi'  => $this->input->post('subseksi')
-			]);
+      $this->StaffModel->tambah();
       $this->session->set_flashdata('pesan', '
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>Sukses!</strong> Berhasil tambah data user.
@@ -36,7 +27,9 @@ class Staff extends CI_Controller {
       ');
 			redirect('admin/kelola_staff');
 		}
-		$data['title']  = "Tambah Staff";
+		$data['title']    = "Tambah Staff";
+    $data['seksi']    = $this->ModelSeksi->getAll();
+    $data['subseksi'] = $this->ModelSubseksi->getAll();
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('admin/tambahStaff',$data);
