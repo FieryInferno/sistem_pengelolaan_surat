@@ -186,6 +186,7 @@ class SuratModel extends CI_Model{
     if (file_exists('./assets/' . $data['file'])) {
       unlink('./assets/' . $data['file']);
     }
+    $this->db->delete('disposisi', ['id_surat_masuk'  => $id_surat_masuk]);
     $this->db->delete('surat_masuk', ['id_surat_masuk'  => $id_surat_masuk]);
   }
 
