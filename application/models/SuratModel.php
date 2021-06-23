@@ -62,6 +62,7 @@ class SuratModel extends CI_Model{
             'no_surat'  => $no_surat
           ])->row_array();
         } else {
+          $this->input->get('bulan') ? $this->db->where('month(tanggal)', $this->input->get('bulan')) : b ;
           return $this->db->get('surat_masuk')->result_array();
         }
         break;
