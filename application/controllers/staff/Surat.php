@@ -36,6 +36,7 @@ class Surat extends CI_Controller {
   public function pengajuan()
   {
 		$data['title']  = "Pengajuan Surat";
+    $this->db->join('surat_keluar', 'pengajuan_surat_keluar.id_pengajuan_surat_keluar = surat_keluar.id_pengajuan_surat_keluar');
 		$data['surat']  = $this->db->get('pengajuan_surat_keluar')->result_array();
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
