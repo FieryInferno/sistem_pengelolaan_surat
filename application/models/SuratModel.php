@@ -129,9 +129,9 @@ class SuratModel extends CI_Model{
   public function disposisiKepalaSeksi()
   {
     $this->db->update('disposisi', [
-      'subseksi'   => $this->input->post('staff'),
-      'status'  => '2'
-    ], ['id_surat_masuk', $this->input->post('id_surat_masuk')]);
+      'subseksi'  => $this->input->post('staff'),
+      'status'    => '2'
+    ], ['id_surat_masuk'  => $this->input->post('id_surat_masuk')]);
     $this->db->update('surat_masuk', ['status' => '2'], ['id_surat_masuk' => $this->input->post('id_surat_masuk')]);
   }
 
