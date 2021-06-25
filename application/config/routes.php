@@ -8,6 +8,7 @@ $route['translate_uri_dashes']  = FALSE;
 $route['admin/surat_keluar']              = 'admin/SuratKeluar';
 $route['admin/surat_keluar/(:any)']       = 'admin/SuratKeluar/tambahData/$1';
 $route['admin/surat_keluar/edit/(:any)']  = 'admin/SuratKeluar/edit/$1';
+$route['admin/surat_keluar/kirim/(:any)'] = 'admin/SuratKeluar/kirim/$1';
 $route['admin/surat_masuk']               = 'admin/SuratMasuk';
 $route['admin/surat_masuk/upload']        = 'admin/SuratMasuk/tambahData';
 $route['admin/surat_masuk/edit/(:any)']   = 'admin/SuratMasuk/edit/$1';

@@ -166,7 +166,6 @@ class SuratKeluar extends CI_Controller{
 	public function edit($id_surat_keluar)
 	{
     if ($this->input->post()) {
-      unlink('assets/' . $this->input->post('surat_lama'));
       ob_start();
         $this->load->view('surat_keluar.php');
         $html = ob_get_contents();
@@ -180,7 +179,9 @@ class SuratKeluar extends CI_Controller{
       $dompdf->setPaper('legal', 'potrait');
       $dompdf->render();
       file_put_contents('./assets/' . $filename . '.pdf', $dompdf->output());
-      $this->SuratModel->buatSuratkeluar($filename, $id_surat_keluar);
+      $this->SuratModel->editSuratkeluar($filename, $id_surat_keluar);
+      if (file_exists('assets/' . $this->input->post('surat_lama'))) unlink('assets/' . $this->input->post('surat_lama'));
+      
       $this->session->set_flashdata('pesan', '
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>Sukses!</strong> Berhasil edit surat keluar.
@@ -191,6 +192,7 @@ class SuratKeluar extends CI_Controller{
       ');
       redirect('admin/SuratKeluar');
     }
+    $this->db->join('pengajuan_surat_keluar', 'surat_keluar.id_pengajuan_surat_keluar = pengajuan_surat_keluar.id_pengajuan_surat_keluar');
     $data = $this->db->get_where('surat_keluar', [
       'id_surat_keluar' => $id_surat_keluar
     ])->row_array();
@@ -200,5 +202,21 @@ class SuratKeluar extends CI_Controller{
 		$this->load->view('admin/editSuratKeluar',$data);
 		$this->load->view('templates_admin/footer');
 	}
+
+  public function kirim($id_pengajuan_surat_keluar)
+  {
+    $this->db->update('pengajuan_surat_keluar', [
+      'status'  => 2,
+    ], ['id_pengajuan_surat_keluar' => $id_pengajuan_surat_keluar]); 
+    $this->session->set_flashdata('pesan', '
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Sukses!</strong> Berhasil mengubah status surat keluar.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    ');
+    redirect('admin/SuratKeluar');
+  }
 }
 ?>

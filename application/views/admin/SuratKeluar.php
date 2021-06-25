@@ -34,6 +34,12 @@
                     <a href="<?= base_url('admin/surat_keluar/' . $m['id_pengajuan_surat_keluar']); ?>" class="btn btn-primary">Buat Surat</a>
                     <?php break;
                   case '1': ?>
+                    <a href="<?= base_url('admin/surat_keluar/edit/' . $m['id_pengajuan_surat_keluar']); ?>" class="btn btn-primary">Edit</a>
+                    <a href="<?= base_url('assets/' . $m['file']); ?>" class="btn btn-primary" target="_blank"><i class="fas fa-eye"></i></a>
+                    <a href="<?= base_url('admin/surat_keluar/kirim/' . $m['id_pengajuan_surat_keluar']); ?>" class="btn btn-primary">Kirim</a>
+                    <?php break;
+
+                  case '2': ?>
                     <a href="<?= base_url('assets/' . $m['file']); ?>" class="btn btn-primary" target="_blank"><i class="fas fa-eye"></i></a>
                     <?php break;
                   
