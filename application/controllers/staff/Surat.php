@@ -36,7 +36,8 @@ class Surat extends CI_Controller {
   public function pengajuan()
   {
 		$data['title']  = "Pengajuan Surat";
-    $this->db->join('surat_keluar', 'pengajuan_surat_keluar.id_pengajuan_surat_keluar = surat_keluar.id_pengajuan_surat_keluar');
+    $this->db->join('surat_keluar', 'pengajuan_surat_keluar.id_pengajuan_surat_keluar = surat_keluar.id_pengajuan_surat_keluar', 'left');
+    $this->db->select('pengajuan_surat_keluar.*, surat_keluar.file');
 		$data['surat']  = $this->db->get('pengajuan_surat_keluar')->result_array();
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
@@ -51,6 +52,7 @@ class Surat extends CI_Controller {
         'id_staff'  => $this->session->id_staff,
         'perihal' => $this->input->post('perihal'),
         'tujuan'  => $this->input->post('tujuan'),
+        'isi'  => $this->input->post('isi'),
         'status'  => 0
       ]);
       $this->session->set_flashdata('pesan', '
@@ -63,7 +65,7 @@ class Surat extends CI_Controller {
       ');
       redirect('staff/pengajuan_surat');
     }
-		$data['title']  = "Pengajuan Surat";
+		$data['title']  = "Tambah Pengajuan Surat";
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('staff/tambahPengajuanSurat');

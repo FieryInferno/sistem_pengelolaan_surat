@@ -12,6 +12,7 @@
         <th class ="text-center">Tanggal Surat</th>
         <th class ="text-center">Perihal</th>
         <th class ="text-center">Tujuan</th>
+        <th class ="text-center">Isi</th>
         <th class ="text-center">Aksi</th>
       </tr>
     </thead>
@@ -25,6 +26,7 @@
             <td><?php echo $m['tanggal'] ?></td>
             <td><?php echo $m['perihal'] ?></td>
             <td><?php echo $m['tujuan'] ?></td>
+            <td><?php echo $m['isi'] ?></td>
             <td>
               <?php
                 switch ($m['status']) {

@@ -62,13 +62,13 @@ class SuratModel extends CI_Model{
             'no_surat'  => $no_surat
           ])->row_array();
         } else {
-          $this->input->get('bulan') ? $this->db->where('month(tanggal)', $this->input->get('bulan')) : b ;
+          $this->input->get('bulan') ? $this->db->where('month(tanggal)', $this->input->get('bulan')) : 'b' ;
           return $this->db->get('surat_masuk')->result_array();
         }
         break;
       case 'surat_keluar':
         $this->db->join('surat_keluar', 'surat_keluar.id_pengajuan_surat_keluar = pengajuan_surat_keluar.id_pengajuan_surat_keluar', 'left');
-        $this->db->select('pengajuan_surat_keluar.*, surat_keluar.no_surat, surat_keluar.tanggal, surat_keluar.isi, surat_keluar.file');
+        $this->db->select('pengajuan_surat_keluar.*, surat_keluar.no_surat, surat_keluar.tanggal, surat_keluar.file');
         return $this->db->get('pengajuan_surat_keluar')->result_array();
         break;
       
@@ -98,7 +98,8 @@ class SuratModel extends CI_Model{
       'urutan_surat'              => $this->input->post('urutan_surat')
     ]);
     $this->db->update('pengajuan_surat_keluar', [
-      'status'  => 1
+      'status'  => 1,
+      'isi'     => $this->input->post('isi'),
     ], ['id_pengajuan_surat_keluar' => $id_surat_keluar]);
   }
 
@@ -194,11 +195,13 @@ class SuratModel extends CI_Model{
   public function hapusSuratKeluar($id_surat_keluar)
   {
     $data = $this->db->get_where('surat_keluar', ['id_pengajuan_surat_keluar' => $id_surat_keluar])->row_array();
-    if (file_exists('./assets/' . $data['file'])) {
-      unlink('./assets/' . $data['file']);
+    if ($data) {
+      if (file_exists('./assets/' . $data['file'])) {
+        unlink('./assets/' . $data['file']);
+      }
     }
-    $this->db->delete('surat_keluar', ['id_surat_keluar'  => $id_surat_keluar]);
     $this->db->delete('pengajuan_surat_keluar', ['id_pengajuan_surat_keluar'  => $id_surat_keluar]);
+    $this->db->delete('surat_keluar', ['id_surat_keluar'  => $id_surat_keluar]);
   }
 }
 

@@ -24,7 +24,7 @@
         </div>
         <div class="form-group">
           <label>Isi Surat</label>
-          <textarea name="isi" cols="30" rows="10" class="form-control" id="editor1"></textarea>
+          <textarea name="isi" cols="30" rows="10" class="form-control" id="editor1"><?= $isi; ?></textarea>
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>

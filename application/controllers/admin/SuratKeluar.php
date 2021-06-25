@@ -20,7 +20,7 @@ class SuratKeluar extends CI_Controller{
 	{
     if ($this->input->post()) {
       ob_start();
-        $this->load->view('surat_keluar.php');
+        $this->load->view('surat_keluar');
         $html = ob_get_contents();
       ob_end_clean();
       ob_clean();
