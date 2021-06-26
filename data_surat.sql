@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jun 2021 pada 11.09
+-- Waktu pembuatan: 26 Jun 2021 pada 06.17
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -41,7 +41,7 @@ CREATE TABLE `disposisi` (
 --
 
 INSERT INTO `disposisi` (`id_disposisi`, `id_surat_masuk`, `seksi`, `subseksi`, `status`, `komentar`) VALUES
-(2, 1, 2, 3, 3, 'Sudah dikerjakan');
+(3, 2, 2, 3, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -74,18 +74,23 @@ INSERT INTO `kepala_seksi` (`id_kepala_seksi`, `id_user`, `nik`, `nama`, `email`
 
 CREATE TABLE `pengajuan_surat_keluar` (
   `id_pengajuan_surat_keluar` int(11) NOT NULL,
-  `id_staff` int(11) NOT NULL,
+  `id_staff` int(11) DEFAULT NULL,
   `perihal` varchar(191) NOT NULL,
   `tujuan` varchar(191) NOT NULL,
-  `status` int(191) NOT NULL
+  `status` int(191) NOT NULL,
+  `isi` text NOT NULL,
+  `kepala_p3d` varchar(191) DEFAULT NULL,
+  `kepala_seksi` varchar(191) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `pengajuan_surat_keluar`
 --
 
-INSERT INTO `pengajuan_surat_keluar` (`id_pengajuan_surat_keluar`, `id_staff`, `perihal`, `tujuan`, `status`) VALUES
-(2, 3, 'a', 'afdf', 1);
+INSERT INTO `pengajuan_surat_keluar` (`id_pengajuan_surat_keluar`, `id_staff`, `perihal`, `tujuan`, `status`, `isi`, `kepala_p3d`, `kepala_seksi`) VALUES
+(5, 3, 'dfdfdf', 'dfdfdf', 2, '<p>asdasf</p>\r\n', NULL, NULL),
+(6, NULL, 'Undangan', 'Bupati Subang', 1, '<p>undangan</p>\r\n', '2', NULL),
+(8, NULL, 'Undangan', 'Bupati Subang', 0, '<p>undangan</p>\r\n', '2', NULL);
 
 -- --------------------------------------------------------
 
@@ -182,7 +187,8 @@ CREATE TABLE `surat_keluar` (
 --
 
 INSERT INTO `surat_keluar` (`id_surat_keluar`, `urutan_surat`, `id_pengajuan_surat_keluar`, `no_surat`, `tanggal`, `isi`, `file`) VALUES
-(4, 1, 2, '800/001-tu', '2021-06-20', '<p>asdfghjkl</p>\r\n', '60cefa9604d8f.pdf');
+(5, 1, 5, '800/001-tu', '2021-06-25', '<p>asdasf</p>\r\n', '60d58b4cc873d.pdf'),
+(6, 2, 6, '800/002-tu', '2021-06-26', '<p>undangan</p>\r\n', '60d6a71c4884d.pdf');
 
 -- --------------------------------------------------------
 
@@ -205,7 +211,7 @@ CREATE TABLE `surat_masuk` (
 --
 
 INSERT INTO `surat_masuk` (`id_surat_masuk`, `no_surat`, `tanggal`, `perihal`, `file`, `pengirim`, `status`) VALUES
-(1, '800/001-tu', '2021-06-20', 'a', 'document5.pdf', 'a', 3);
+(2, '800/001-tu', '2021-06-23', 'a', 'document5.pdf', 'a', 2);
 
 -- --------------------------------------------------------
 
@@ -241,8 +247,7 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `level`) VALUES
 ALTER TABLE `disposisi`
   ADD PRIMARY KEY (`id_disposisi`),
   ADD KEY `id_surat_masuk` (`id_surat_masuk`),
-  ADD KEY `seksi` (`seksi`),
-  ADD KEY `subseksi` (`subseksi`);
+  ADD KEY `seksi` (`seksi`);
 
 --
 -- Indeks untuk tabel `kepala_seksi`
@@ -302,7 +307,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `disposisi`
 --
 ALTER TABLE `disposisi`
-  MODIFY `id_disposisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_disposisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `kepala_seksi`
@@ -314,7 +319,7 @@ ALTER TABLE `kepala_seksi`
 -- AUTO_INCREMENT untuk tabel `pengajuan_surat_keluar`
 --
 ALTER TABLE `pengajuan_surat_keluar`
-  MODIFY `id_pengajuan_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pengajuan_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `seksi`
@@ -338,13 +343,13 @@ ALTER TABLE `subseksi`
 -- AUTO_INCREMENT untuk tabel `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
-  MODIFY `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_masuk`
 --
 ALTER TABLE `surat_masuk`
-  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -355,8 +360,7 @@ ALTER TABLE `surat_masuk`
 --
 ALTER TABLE `disposisi`
   ADD CONSTRAINT `disposisi_ibfk_1` FOREIGN KEY (`id_surat_masuk`) REFERENCES `surat_masuk` (`id_surat_masuk`),
-  ADD CONSTRAINT `disposisi_ibfk_2` FOREIGN KEY (`seksi`) REFERENCES `seksi` (`id_seksi`),
-  ADD CONSTRAINT `disposisi_ibfk_3` FOREIGN KEY (`subseksi`) REFERENCES `staff` (`id_staff`);
+  ADD CONSTRAINT `disposisi_ibfk_2` FOREIGN KEY (`seksi`) REFERENCES `seksi` (`id_seksi`);
 
 --
 -- Ketidakleluasaan untuk tabel `pengajuan_surat_keluar`
@@ -369,12 +373,6 @@ ALTER TABLE `pengajuan_surat_keluar`
 --
 ALTER TABLE `subseksi`
   ADD CONSTRAINT `subseksi_ibfk_1` FOREIGN KEY (`id_seksi`) REFERENCES `seksi` (`id_seksi`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `surat_keluar`
---
-ALTER TABLE `surat_keluar`
-  ADD CONSTRAINT `surat_keluar_ibfk_1` FOREIGN KEY (`id_pengajuan_surat_keluar`) REFERENCES `pengajuan_surat_keluar` (`id_pengajuan_surat_keluar`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

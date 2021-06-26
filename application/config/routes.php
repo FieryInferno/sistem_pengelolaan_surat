@@ -20,15 +20,18 @@ $route['admin/kelola_staff/tambah']       = 'admin/Staff/tambah';
 $route['admin/kelola_staff/hapus/(:any)'] = 'admin/Staff/hapus/$1';
 $route['admin/kelola_staff/edit/(:any)']  = 'admin/Staff/edit/$1';
 
-$route['kepala_p3d']                        = 'kepala_p3d/Dashboard';
-$route['kepala_p3d/surat']                  = 'kepala_p3d/Surat';
-$route['kepala_p3d/disposisi']              = 'kepala_p3d/Surat/disposisi';
-$route['kepala_p3d/pengajuan_surat']        = 'kepala_p3d/Surat/pengajuan';
-$route['kepala_p3d/pengajuan_surat/tambah'] = 'kepala_p3d/Surat/tambahPengajuan';
-$route['kepala_p3d/pengajuan_surat/hapus/(:any)']  = 'staff/Surat/hapus/$1';
+$route['kepala_p3d']                              = 'kepala_p3d/Dashboard';
+$route['kepala_p3d/surat']                        = 'kepala_p3d/Surat';
+$route['kepala_p3d/disposisi']                    = 'kepala_p3d/Surat/disposisi';
+$route['kepala_p3d/pengajuan_surat']              = 'kepala_p3d/Surat/pengajuan';
+$route['kepala_p3d/pengajuan_surat/tambah']       = 'kepala_p3d/Surat/tambahPengajuan';
+$route['kepala_p3d/pengajuan_surat/hapus/(:any)'] = 'staff/Surat/hapus/$1';
 
-$route['kepala_seksi']            = 'kepala_seksi/Dashboard';
-$route['kepala_seksi/disposisi']  = 'kepala_seksi/Surat/disposisi';
+$route['kepala_seksi']                              = 'kepala_seksi/Dashboard';
+$route['kepala_seksi/disposisi']                    = 'kepala_seksi/Surat/disposisi';
+$route['kepala_seksi/pengajuan_surat']              = 'kepala_seksi/Surat/pengajuan';
+$route['kepala_seksi/pengajuan_surat/tambah']       = 'kepala_seksi/Surat/tambahPengajuan';
+$route['kepala_seksi/pengajuan_surat/hapus/(:any)'] = 'kepala_seksi/Surat/hapus/$1';
 
 $route['staff']                               = 'staff/Dashboard';
 $route['staff/surat']                         = 'staff/Surat';

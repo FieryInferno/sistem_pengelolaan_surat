@@ -99,6 +99,6 @@ class Surat extends CI_Controller {
         </button>
       </div>
     ');
-    redirect('staff/pengajuan_surat');
+    redirect('kepala_p3d/pengajuan_surat');
   }
 }

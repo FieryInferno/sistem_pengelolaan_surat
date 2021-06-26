@@ -113,6 +113,13 @@
                   </span>
                 </a>
               </li>
+              <!-- Nav Item - Pages Collapse Menu -->
+              <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>kepala_seksi/pengajuan_surat">
+                  <i class="fas fa-fw fa-database"></i>
+                  <span>Pengajuan Surat</span>
+                </a>
+              </li>
               <?php break;
             case 'staff': ?>
               <li class="nav-item">
