@@ -38,7 +38,7 @@ class Surat extends CI_Controller {
 		$data['title']  = "Pengajuan Surat";
     $this->db->join('surat_keluar', 'pengajuan_surat_keluar.id_pengajuan_surat_keluar = surat_keluar.id_pengajuan_surat_keluar', 'left');
     $this->db->select('pengajuan_surat_keluar.*, surat_keluar.file');
-		$data['surat']  = $this->db->get('pengajuan_surat_keluar')->result_array();
+		$data['surat']  = $this->db->get_where('pengajuan_surat_keluar', ['id_staff'  => $this->session->id_staff])->result_array();
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('staff/pengajuanSurat');
