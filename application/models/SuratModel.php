@@ -69,6 +69,7 @@ class SuratModel extends CI_Model{
       case 'surat_keluar':
         $this->db->join('surat_keluar', 'surat_keluar.id_pengajuan_surat_keluar = pengajuan_surat_keluar.id_pengajuan_surat_keluar', 'left');
         $this->db->select('pengajuan_surat_keluar.*, surat_keluar.no_surat, surat_keluar.tanggal, surat_keluar.file');
+        $this->input->get('bulan') ? $this->db->where('month(tanggal)', $this->input->get('bulan')) : 'b' ;
         return $this->db->get('pengajuan_surat_keluar')->result_array();
         break;
       
