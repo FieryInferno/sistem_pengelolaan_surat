@@ -6,7 +6,7 @@
     <div class="card-body">
       <form method="POST" action="<?php echo base_url('admin/kelola_staff/edit/' . $id_user) ?>">
         <div class="form-group">
-          <label>NIK</label>
+          <label>NIP</label>
           <input type="text" name="nik" class="form-control" value="<?= $nik; ?>">
         </div>
         <div class="form-group">

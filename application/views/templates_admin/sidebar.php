@@ -20,6 +20,12 @@
                 <span>Dashboard</span>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url(); ?>admin/kelola_staff">
+                <i class="fas fa-fw fa-database"></i>
+                <span>Kelola Staff</span>
+              </a>
+            </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -50,12 +56,6 @@
               <a class="nav-link" href="<?= base_url(); ?>admin/tracking_surat">
                 <i class="fas fa-fw fa-database"></i>
                 <span>Tracking Surat</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?= base_url(); ?>admin/kelola_staff">
-                <i class="fas fa-fw fa-database"></i>
-                <span>Kelola Staff</span>
               </a>
             </li>
             <?php break;

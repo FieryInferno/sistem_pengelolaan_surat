@@ -8,7 +8,7 @@
     <table class="table table-bordered table-striped mt-2" id="myTable">
       <thead>
         <tr>
-          <th class ="text-center">NIK</th>
+          <th class ="text-center">NIP</th>
           <th class ="text-center">Nama</th>
           <th class ="text-center">Username</th>
           <th class ="text-center">Email</th>

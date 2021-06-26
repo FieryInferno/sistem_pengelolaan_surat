@@ -7,7 +7,7 @@
   <table class="table table-bordered table-striped mt-2">
     <thead>
       <tr>
-        <th>NIK</th>
+        <th>NIP</th>
         <th>Nama</th>
         <th>Email</th>
         <th>Username</th>
