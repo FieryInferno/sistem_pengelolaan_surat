@@ -29,7 +29,7 @@
                     <h4 class="site-description"><div style='color:rgb(0 0 0);'>Login</div></h4>
                     <h4 class="site-description"><div style='color:rgb(0 0 0);'>Sistem Informasi Pengelolaan Surat</div></h4>
                   </div>
-                  <?php $this->session->pesan ? $this->session->pesan : ''; ?>
+                  <?= $this->session->pesan ? $this->session->pesan : ''; ?>
                   <form class="user" method="post" action="<?= base_url('Login/masuk'); ?>">
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" name="username" placeholder="Username">
