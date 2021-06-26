@@ -26,6 +26,11 @@
           <?php echo form_error('Perihal','<div class="text-small text-danger"></div') ?>
         </div>
         <div class="form-group">
+          <label>Tujuan</label>
+          <input type="text" name="tujuan" class="form-control" value="<?= $tujuan; ?>">
+          <?php echo form_error('Perihal','<div class="text-small text-danger"></div') ?>
+        </div>
+        <div class="form-group">
           <label>File Surat (pdf)</label>
           <input type="file" name="file" class="form-control">
           <input type="hidden" name="file_old" value="<?= $file; ?>">

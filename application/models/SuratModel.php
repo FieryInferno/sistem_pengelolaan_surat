@@ -25,9 +25,6 @@ class SuratModel extends CI_Model{
   {
     $config['upload_path']          = './assets/';
     $config['allowed_types']        = 'pdf';
-    $config['max_size']             = 100000;
-    $config['max_width']            = 1024;
-    $config['max_height']           = 768;
 
     $this->upload->initialize($config);
 
@@ -49,6 +46,7 @@ class SuratModel extends CI_Model{
       'tanggal'   => $this->input->post('tanggal'),
       'pengirim'  => $this->input->post('pengirim'),
       'perihal'   => $this->input->post('perihal'),
+      'tujuan'    => $this->input->post('tujuan'),
       'file'      => $file,
     ]);
   }
@@ -191,6 +189,7 @@ class SuratModel extends CI_Model{
       'tanggal'   => $this->input->post('tanggal'),
       'pengirim'  => $this->input->post('pengirim'),
       'perihal'   => $this->input->post('perihal'),
+      'tujuan'    => $this->input->post('tujuan'),
       'file'      => $file,
     ], ['id_surat_masuk'  => $id_surat_masuk]);
   }

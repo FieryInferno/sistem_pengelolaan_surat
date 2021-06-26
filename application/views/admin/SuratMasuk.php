@@ -47,6 +47,7 @@
             <th class ="text-center">Pengirim</th>
             <th class ="text-center">Tanggal Surat</th>
             <th class ="text-center">Perihal</th>
+            <th class ="text-center">Tujuan</th>
             <th class ="text-center">Aksi</th>
           </tr>
         </thead>
@@ -60,6 +61,7 @@
               <td><?php echo $m['pengirim'] ?></td>
               <td><?php echo $m['tanggal'] ?></td>
               <td><?php echo $m['perihal'] ?></td>
+              <td><?php echo $m['tujuan'] ?></td>
               <td>
                 <a href="<?= base_url('assets/' . $m['file']); ?>" class="btn btn-primary"><i class="fas fa-eye"></i></a>
                 <a href="<?= base_url('admin/surat_masuk/edit/' . $m['id_surat_masuk']); ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
