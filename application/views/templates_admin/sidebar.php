@@ -6,7 +6,10 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="background: #36b9cc;">
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-text mx-3">SIPS</div>
+        <div class="sidebar-brand-text mx-3" style="font-size: 0.9rem;">
+          <div>SISTEM INFORMASI</div>
+          <div>PENGELOLAAN SURAT</div>
+        </div>
       </a>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
