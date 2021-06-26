@@ -56,5 +56,13 @@ class User extends CI_Controller{
   ');
 		redirect('admin/User');
 	}
+
+  public function pilihSubseksi()
+  {
+    $data = $this->db->get_where('subseksi', ['id_seksi'  => $this->input->post('id_seksi')])->result_array();
+    $this->output
+      ->set_content_type('application/json')
+      ->set_output(json_encode($data));
+  }
 }
 ?>

@@ -40,7 +40,7 @@
         </div>
         <div class="form-group">
           <label>Seksi</label>
-          <select name="id_seksi" class="form-control">
+          <select name="id_seksi" class="form-control" onchange="pilihSubseksi(this)">
             <option>Pilih Seksi</option>
             <?php
               foreach ($seksi as $key) { ?>
@@ -52,14 +52,7 @@
         </div>
         <div class="form-group">
           <label>Sub Seksi</label>
-          <select name="subseksi" class="form-control">
-            <option value="NULL">Pilih Sub Seksi</option>
-            <?php
-              foreach ($subseksi as $key) { ?>
-                <option value="<?= $key['id_subseksi']; ?>"><?= $key['nama_subseksi']; ?></option>
-              <?php }
-            ?>
-          </select>
+          <select name="subseksi" class="form-control" id="subseksi"></select>
           <?php echo form_error('role','<div class="text-small text-danger"></div') ?>
         </div>
         <button type="submit" class="btn btn-success">Submit</button>

@@ -19,6 +19,7 @@ $route['admin/kelola_staff']              = 'admin/Staff';
 $route['admin/kelola_staff/tambah']       = 'admin/Staff/tambah';
 $route['admin/kelola_staff/hapus/(:any)'] = 'admin/Staff/hapus/$1';
 $route['admin/kelola_staff/edit/(:any)']  = 'admin/Staff/edit/$1';
+$route['admin/pilih_subseksi']            = 'admin/user/pilihSubseksi';
 
 $route['kepala_p3d']                              = 'kepala_p3d/Dashboard';
 $route['kepala_p3d/surat']                        = 'kepala_p3d/Surat';

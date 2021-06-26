@@ -71,6 +71,23 @@
     function disposisi(id) {
       $('#id_surat_masuk').val(id);
     }
+
+    function pilihSubseksi(data) {
+      $.ajax({
+        url   : `<?= base_url(); ?>admin/pilih_subseksi`,
+        type  : 'post',
+        data  : {
+          id_seksi : data.value
+        }, 
+        success : function(result){
+          data  = '<option>Pilih Subseksi</option>';
+          result.forEach(element => {
+            data  += `<option value="${element.id_subseksi}">${element.nama_subseksi}</option>`;
+          });
+          $('#subseksi').html(data);
+        }
+      });
+    }
   </script>
 </body>
 
