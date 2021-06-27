@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Jun 2021 pada 08.39
+-- Waktu pembuatan: 27 Jun 2021 pada 04.09
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -203,15 +203,16 @@ CREATE TABLE `surat_masuk` (
   `perihal` varchar(191) NOT NULL,
   `file` varchar(191) NOT NULL,
   `pengirim` varchar(191) NOT NULL,
-  `status` int(191) NOT NULL
+  `status` int(191) NOT NULL,
+  `tujuan` varchar(191) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `surat_masuk`
 --
 
-INSERT INTO `surat_masuk` (`id_surat_masuk`, `no_surat`, `tanggal`, `perihal`, `file`, `pengirim`, `status`) VALUES
-(2, '800/001-tu', '2021-06-23', 'a', 'document5.pdf', 'a', 2);
+INSERT INTO `surat_masuk` (`id_surat_masuk`, `no_surat`, `tanggal`, `perihal`, `file`, `pengirim`, `status`, `tujuan`) VALUES
+(2, '800/001-tu', '2021-06-23', 'a', 'document5.pdf', 'a', 2, '');
 
 -- --------------------------------------------------------
 
