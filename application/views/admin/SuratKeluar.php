@@ -82,6 +82,9 @@
                         <button type="button" class="btn btn-primary" disabled>Sudah Ditindaklanjuti</button>
                         <?php break;
                     }
+                    if ($m['id_staff'] == NULL && $m['kepala_p3d'] == NULL && $m['kepala_seksi'] == NULL) { ?>
+                      <a href="<?= base_url('admin/surat_keluar/hapus/' . $m['id_pengajuan_surat_keluar']); ?>" class="btn btn-danger">Hapus</a>
+                    <?php }
                   ?>
                 </td>
               </tr>

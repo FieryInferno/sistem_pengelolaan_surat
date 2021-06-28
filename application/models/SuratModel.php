@@ -213,7 +213,7 @@ class SuratModel extends CI_Model{
       }
     }
     $this->db->delete('pengajuan_surat_keluar', ['id_pengajuan_surat_keluar'  => $id_surat_keluar]);
-    $this->db->delete('surat_keluar', ['id_surat_keluar'  => $id_surat_keluar]);
+    $this->db->delete('surat_keluar', ['id_pengajuan_surat_keluar'  => $id_surat_keluar]);
   }
 }
 

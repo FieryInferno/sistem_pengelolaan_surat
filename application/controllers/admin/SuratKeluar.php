@@ -293,5 +293,19 @@ class SuratKeluar extends CI_Controller{
 		$this->load->view('admin/buatSuratKeluar',$data);
 		$this->load->view('templates_admin/footer');
 	}
+
+  public function hapus($id_pengajuan_surat_keluar)
+  {
+    $this->SuratModel->hapusSuratKeluar($id_pengajuan_surat_keluar);
+    $this->session->set_flashdata('pesan', '
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Sukses!</strong> Berhasil hapus surat keluar.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    ');
+    redirect('admin/surat_keluar');
+  }
 }
 ?>
