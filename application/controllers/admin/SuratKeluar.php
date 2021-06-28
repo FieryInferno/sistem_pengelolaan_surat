@@ -218,5 +218,80 @@ class SuratKeluar extends CI_Controller{
     ');
     redirect('admin/SuratKeluar');
   }
+
+	public function buatSurat()
+	{
+    if ($this->input->post()) {
+      ob_start();
+        $this->load->view('surat_keluar');
+        $html = ob_get_contents();
+      ob_end_clean();
+      ob_clean();
+      $filename = uniqid();
+      $options  = new Options();
+      $options->set('isRemoteEnabled', TRUE);
+      $dompdf = new Dompdf($options);
+      $dompdf->loadHtml($html);
+      $dompdf->setPaper('legal', 'potrait');
+      $dompdf->render();
+      file_put_contents('./assets/' . $filename . '.pdf', $dompdf->output());
+
+      $this->db->insert('pengajuan_surat_keluar', [
+        'perihal' => $this->input->post('perihal'),
+        'tujuan'  => $this->input->post('tujuan'),
+        'status'  => 1,
+        'isi'     => $this->input->post('isi'),
+      ]);
+      $this->db->select_max('id_pengajuan_surat_keluar');
+      $id_pengajuan_surat_keluar  = $this->db->get('pengajuan_surat_keluar')->row_array();
+      
+      $this->db->insert('surat_keluar', [
+        'id_pengajuan_surat_keluar' => $id_pengajuan_surat_keluar['id_pengajuan_surat_keluar'],
+        'no_surat'                  => $this->input->post('no_surat'),
+        'tanggal'                   => $this->input->post('tanggal'),
+        'file'                      => $filename . '.pdf',
+        'isi'                       => $this->input->post('isi'),
+        'urutan_surat'              => $this->input->post('urutan_surat')
+      ]);
+
+      $this->session->set_flashdata('pesan', '
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Sukses!</strong> Berhasil menambah surat keluar.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      ');
+      redirect('admin/SuratKeluar');
+    }
+		$data['title']  = "Buat Surat Keluar";
+    $suratTerbaru   = $this->SuratModel->getSuratTerbaru();
+    if ($suratTerbaru) {
+      $urutanSurat    = (integer) $suratTerbaru['urutan_surat'] + 1;
+      switch (strlen($urutanSurat)) {
+        case '1':
+          $data['no_surat'] = '800/00' . $urutanSurat . '-tu';
+          break;
+        case '2':
+          $data['no_surat'] = '800/0' . $urutanSurat . '-tu';
+          break;
+        case '3':
+          $data['no_surat'] = '800/' . $urutanSurat . '-tu';
+          break;
+        
+        default:
+          # code...
+          break;
+      }
+      $data['urutan_surat'] = $urutanSurat;
+    } else {
+      $data['no_surat']     = '800/001-tu';
+      $data['urutan_surat'] = 1;
+    }
+		$this->load->view('templates_admin/header', $data);
+		$this->load->view('templates_admin/sidebar');
+		$this->load->view('admin/buatSuratKeluar',$data);
+		$this->load->view('templates_admin/footer');
+	}
 }
 ?>
