@@ -234,6 +234,8 @@ class SuratKeluar extends CI_Controller{
       $dompdf->loadHtml($html);
       $dompdf->setPaper('legal', 'potrait');
       $dompdf->render();
+      // $dompdf->stream("dompdf_out.pdf", array("Attachment" => false));
+      // die();
       file_put_contents('./assets/' . $filename . '.pdf', $dompdf->output());
 
       $this->db->insert('pengajuan_surat_keluar', [

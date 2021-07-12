@@ -39,7 +39,7 @@
     </tr>
     <tr>
       <td>Lampiran &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: - </td>
-      <td class="text-center"><?= $this->input->post('tujuan'); ?></td>
+      <td class="text-center">Yth. <?= $this->input->post('tujuan'); ?></td>
     </tr>
     <tr>
       <td>Perihal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $this->input->post('perihal'); ?></td>
