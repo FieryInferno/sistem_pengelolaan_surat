@@ -19,6 +19,7 @@
             <th class ="text-center">Pengirim</th>
             <th class ="text-center">Tanggal Surat</th>
             <th class ="text-center">Perihal</th>
+            <th class ="text-center">Isi Disposisi</th>
             <th class ="text-center">Aksi</th>
           </tr>
         </thead>
@@ -32,6 +33,7 @@
               <td><?php echo $m['pengirim'] ?></td>
               <td><?php echo $m['tanggal'] ?></td>
               <td><?php echo $m['perihal'] ?></td>
+              <td><?php echo $m['komentar_kepala_seksi'] ?></td>
               <td>
                 <a href="<?= base_url('assets/' . $m['file']); ?>" class="btn btn-primary"><i class="fas fa-eye"></i></a>
                 <?php

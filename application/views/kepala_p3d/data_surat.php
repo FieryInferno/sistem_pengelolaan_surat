@@ -71,6 +71,10 @@
               ?>
             </select>
           </div>
+          <div class="form-group">
+            <label>Isi Disposisi</label>
+            <textarea name="isi_disposisi" id="isi_disposisi" cols="30" rows="5" class="form-control"></textarea>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
