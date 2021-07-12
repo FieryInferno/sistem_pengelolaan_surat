@@ -294,33 +294,43 @@ class SuratKeluar extends CI_Controller{
     switch ($this->input->post('klasifikasi')) {
       case 'umum':
         $klasifikasi  = '000';
+        $akhiran      = '';
         break;
       case 'pemerintahan':
         $klasifikasi  = '100';
+        $akhiran      = '';
         break;
       case 'pengawasan':
         $klasifikasi  = '200';
+        $akhiran      = '';
         break;
       case 'pekerjaan_umum_dan_ketenagaan':
         $klasifikasi  = '300';
+        $akhiran      = '';
         break;
       case 'perekonomian':
         $klasifikasi  = '400';
+        $akhiran      = '';
         break;
       case 'kesejahteraan_rakyat':
         $klasifikasi  = '500';
+        $akhiran      = '';
         break;
       case 'keamanan':
         $klasifikasi  = '600';
+        $akhiran      = '';
         break;
       case 'politik':
         $klasifikasi  = '700';
+        $akhiran      = '';
         break;
       case 'kepegawaian':
         $klasifikasi  = '800';
+        $akhiran      = '-tu';
         break;
       case 'keuangan':
         $klasifikasi  = '900';
+        $akhiran      = '';
         break;
       
       default:
@@ -331,13 +341,13 @@ class SuratKeluar extends CI_Controller{
       $urutanSurat    = (integer) $suratTerbaru['urutan_surat'] + 1;
       switch (strlen($urutanSurat)) {
         case '1':
-          $data['no_surat'] = $klasifikasi . '/00' . $urutanSurat . '-tu';
+          $data['no_surat'] = $klasifikasi . '/00' . $urutanSurat . $akhiran;
           break;
         case '2':
-          $data['no_surat'] = $klasifikasi . '/0' . $urutanSurat . '-tu';
+          $data['no_surat'] = $klasifikasi . '/0' . $urutanSurat . $akhiran;
           break;
         case '3':
-          $data['no_surat'] = $klasifikasi . '/' . $urutanSurat . '-tu';
+          $data['no_surat'] = $klasifikasi . '/' . $urutanSurat . $akhiran;
           break;
         
         default:
@@ -346,7 +356,7 @@ class SuratKeluar extends CI_Controller{
       }
       $data['urutan_surat'] = $urutanSurat;
     } else {
-      $data['no_surat']     = $klasifikasi . '/001-tu';
+      $data['no_surat']     = $klasifikasi . '/001' . $akhiran;
       $data['urutan_surat'] = 1;
     }
 
