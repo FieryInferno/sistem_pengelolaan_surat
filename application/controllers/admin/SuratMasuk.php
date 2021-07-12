@@ -81,13 +81,13 @@ class SuratMasuk extends CI_Controller{
             $data['status'] = '<div class="alert alert-primary">Sedang dilihat kepala P3d</div>';
             break;
           case '1':
-            $data['status'] = '<div class="alert alert-warning">Sudah didisposisikan ke kepala seksi</div>';
+            $data['status'] = '<div class="alert alert-primary">Sudah dilihat kepala P3d</div><div class="alert alert-warning">Sudah didisposisikan ke kepala seksi</div>';
             break;
           case '2':
-            $data['status'] = '<div class="alert alert-info">Sudah didisposisikan ke staff/menuggu tindak lanjut</div>';
+            $data['status'] = '<div class="alert alert-primary">Sudah dilihat kepala P3d</div><div class="alert alert-warning">Sudah didisposisikan ke kepala seksi</div><div class="alert alert-info">Sudah didisposisikan ke staff/menuggu tindak lanjut</div>';
             break;
           case '3':
-            $data['status'] = '<div class="alert alert-success">Surat sudah ditindaklanjuti oleh staff</div>';
+            $data['status'] = '<div class="alert alert-primary">Sedang dilihat kepala P3d</div><div class="alert alert-warning">Sudah didisposisikan ke kepala seksi</div><div class="alert alert-info">Sudah didisposisikan ke staff/menuggu tindak lanjut</div><div class="alert alert-success">Surat sudah ditindaklanjuti oleh staff</div>';
             break;
           
           default:
