@@ -7,7 +7,8 @@
       <form method="POST" action="<?php echo base_url('admin/surat_masuk/upload') ?>" enctype="multipart/form-data">
         <div class="form-group">
           <label>Nomor Surat</label>
-          <input type="text" name="no_surat" class="form-control">
+          <input type="text" name="no_surat" class="form-control" onkeyup="cekNomorSurat(this)">
+          <div id="cekSurat"></div>
           <?php echo form_error('Nomor_Surat','<div class="text-small text-danger"></div') ?>
         </div>
         <div class="form-group">

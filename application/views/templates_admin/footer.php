@@ -97,9 +97,25 @@
           klasifikasi : data.value
         }, 
         success : function(result){
-          console.log(result);
           $('#urutan_surat').val(result.urutan_surat);
           $('#no_surat').val(result.no_surat);
+        }
+      });
+    }
+
+    function cekNomorSurat(data) {
+      $.ajax({
+        url   : `<?= base_url(); ?>admin/cek_nomor_surat`,
+        type  : 'post',
+        data  : {
+          no_surat : data.value
+        }, 
+        success : function(result) {
+          if (result.status) {
+            $('#cekSurat').html(`<span class="text-danger">No. Surat Sudah Ada</span>`);
+          } else {
+            $('#cekSurat').html(``);
+          }
         }
       });
     }

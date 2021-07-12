@@ -23,6 +23,7 @@ $route['admin/kelola_staff/ubah/(:any)']  = 'admin/Staff/edit/$1';
 $route['admin/pilih_subseksi']            = 'admin/user/pilihSubseksi';
 $route['admin/buat_surat_keluar']         = 'admin/SuratKeluar/buatSurat';
 $route['admin/nomor_surat']               = 'admin/SuratKeluar/nomorSurat';
+$route['admin/cek_nomor_surat']           = 'admin/SuratKeluar/cekNomorSurat';
 
 $route['kepala_p3d']                              = 'kepala_p3d/Dashboard';
 $route['kepala_p3d/surat']                        = 'kepala_p3d/Surat';

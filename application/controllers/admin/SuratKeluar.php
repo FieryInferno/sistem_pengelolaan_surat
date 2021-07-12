@@ -354,5 +354,20 @@ class SuratKeluar extends CI_Controller{
         ->set_content_type('application/json')
         ->set_output(json_encode($data));
   }
+
+  public function cekNomorSurat()
+  {
+    $data = $this->db->get_where('surat_masuk', ['no_surat' => $this->input->post('no_surat')])->row_array();
+    if ($data) {
+      $this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode(['status'  => TRUE]));
+    } else {
+      $this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode(['status'  => FALSE]));
+    }
+    
+  }
 }
 ?>
