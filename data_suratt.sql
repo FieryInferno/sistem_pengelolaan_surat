@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Jul 2021 pada 08.59
+-- Waktu pembuatan: 13 Jul 2021 pada 08.06
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `data_suratt`
+-- Database: `data_surat_baru`
 --
 
 -- --------------------------------------------------------
@@ -33,16 +33,18 @@ CREATE TABLE `disposisi` (
   `seksi` int(11) NOT NULL,
   `subseksi` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL,
-  `komentar` text DEFAULT NULL
+  `komentar` text DEFAULT NULL,
+  `komentar_p3d` text DEFAULT NULL,
+  `kometar_kepala_seksi` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `disposisi`
 --
 
-INSERT INTO `disposisi` (`id_disposisi`, `id_surat_masuk`, `seksi`, `subseksi`, `status`, `komentar`) VALUES
-(2, 6, 2, 3, 3, 'ya'),
-(3, 8, 2, NULL, 1, NULL);
+INSERT INTO `disposisi` (`id_disposisi`, `id_surat_masuk`, `seksi`, `subseksi`, `status`, `komentar`, `komentar_p3d`, `kometar_kepala_seksi`) VALUES
+(2, 6, 2, 3, 3, 'ya', NULL, NULL),
+(3, 8, 2, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
