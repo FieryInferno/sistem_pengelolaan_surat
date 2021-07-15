@@ -72,9 +72,11 @@ class StaffModel extends CI_Model {
   public function tambah()
   {
     $id_user  = uniqid();
+    $username = explode(' ', $this->input->post('nama'));
+    $username_baru  = isset($username[1]) ? strtolower($username[0] . $username[1]) : strtolower($username[0]);
     $this->db->insert('user', [
       'id_user'   => $id_user,
-      'username'	=> $this->input->post('username'),
+      'username'	=> $username_baru,
       'password'	=> $this->input->post('password'),
       'level'		  => $this->input->post('role'),
     ]);

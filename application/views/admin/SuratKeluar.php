@@ -39,7 +39,7 @@
           </div>
         </div>
       </form>
-      <table class="table table-bordered table-striped mt-2" id="myTable">
+      <table class="table table-bordered table-striped mt-2" id="myTable" width="100%">
         <thead>
           <tr>
             <th class ="text-center">No</th>
@@ -48,7 +48,7 @@
             <th class ="text-center">Perihal</th>
             <th class ="text-center">Tujuan</th>
             <th class ="text-center">Isi</th>
-            <th class ="text-center">Aksi</th>
+            <th class ="text-center" width="15%">Aksi</th>
           </tr>
         </thead>
         <tbody>

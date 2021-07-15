@@ -13,11 +13,11 @@
           <label>Nama</label>
           <input type="text" name="nama" class="form-control">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label>Username</label>
           <input type="text" name="username" class="form-control">
           <?php echo form_error('username','<div class="text-small text-danger"></div') ?>
-        </div>
+        </div> -->
         <div class="form-group">
           <label>Password</label>
           <input type="password" name="password" class="form-control">
