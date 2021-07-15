@@ -32,21 +32,27 @@
         return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
       }
       echo tgl_indo($this->input->post('tanggal')); ?></div>
-  <table>
+  <table width="100%">
     <tr>
-      <td width="450px">No. Surat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $this->input->post('no_surat'); ?></td>
+      <td width="66%">No. Surat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $this->input->post('no_surat'); ?></td>
       <td class="text-center">Kepada</td>
     </tr>
+  </table>
+  <table width="100%">
     <tr>
-      <td>Lampiran &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: - </td>
+      <td width="68%">Lampiran &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: - </td>
       <td class="text-center">Yth. <?= $this->input->post('tujuan'); ?></td>
     </tr>
+  </table>
+  <table width="100%">
     <tr>
-      <td>Perihal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $this->input->post('perihal'); ?></td>
+      <td width="60%">Perihal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $this->input->post('perihal'); ?></td>
       <td class="text-center">Di</td>
     </tr>
+  </table>
+  <table width="100%">
     <tr>
-      <td></td>
+      <td width="80%"></td>
       <td class="text-center">Tempat</td>
     </tr>
   </table>

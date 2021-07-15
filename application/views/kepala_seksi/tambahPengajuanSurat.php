@@ -4,7 +4,7 @@
   </div>
   <div class="card" style="width: 60%;">
     <div class="card-body">
-      <form method="POST" action="<?php echo base_url('kepala_p3d/pengajuan_surat/tambah') ?>" enctype="multipart/form-data">
+      <form method="POST" action="<?php echo base_url('kepala_seksi/pengajuan_surat/tambah') ?>" enctype="multipart/form-data">
         <div class="form-group">
           <label>Perihal</label>
           <input type="text" name="perihal" class="form-control">
