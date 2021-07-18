@@ -113,8 +113,10 @@
         success : function(result) {
           if (result.status) {
             $('#cekSurat').html(`<span class="text-danger">No. Surat Sudah Ada</span>`);
+            $('#tombolSuratMasuk').attr(`disabled`, 'disabled');
           } else {
             $('#cekSurat').html(``);
+            $('#tombolSuratMasuk').removeAttr(`disabled`, 'disabled');
           }
         }
       });

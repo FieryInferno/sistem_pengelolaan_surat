@@ -48,7 +48,7 @@
             <th class ="text-center">Perihal</th>
             <th class ="text-center">Tujuan</th>
             <th class ="text-center">Isi</th>
-            <th class ="text-center" width="15%">Aksi</th>
+            <th class ="text-center" width="20%">Aksi</th>
           </tr>
         </thead>
         <tbody>

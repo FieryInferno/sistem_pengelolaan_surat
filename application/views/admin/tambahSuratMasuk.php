@@ -35,7 +35,7 @@
           <label>File Surat (pdf)</label>
           <input type="file" name="file" class="form-control">
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success" id="tombolSuratMasuk">Submit</button>
       </form>
     </div>
   </div>
